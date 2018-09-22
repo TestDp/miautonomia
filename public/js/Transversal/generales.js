@@ -5,7 +5,7 @@ function obtenerUlrBase() {
         case 'facin.co':
             rootFolder = '/'; break;
         case 'localhost':
-            rootFolder = '/MA/trunk/public/'; break;
+            rootFolder = '/miautonomia/trunk/public/'; break;
         default:  // set whatever you want
     }
     var urlBase = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + rootFolder;
