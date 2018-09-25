@@ -119,7 +119,7 @@ class RegisterController extends Controller
             ]);
             $user
                 ->roles()
-                ->attach(Rol::where('Nombre', 'Admin')->first());
+                ->attach(Rol::where('Nombre', 'profesor')->first());
             DB::commit();
             Mail::send('Correos.ConfirmarCorreo', $data, function($message) use ($data) {
                 $message->to($data['email'], $data['name'])->subject('Por favor confirma tu correo');

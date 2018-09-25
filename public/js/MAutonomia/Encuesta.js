@@ -100,19 +100,23 @@ function EditarNombrePreguntasYRespuetas(){
         $(pregunta).find("input[name=TextoPregunta]").attr("name","Enunciado[" + i+ "]");
         $(pregunta).find("input[name=TextoRespuesta]").each(function (j,respuesta) {
             $(respuesta).attr("name","TextoRespuesta[" + i + "][" + j +"]");
-        })
+        });
+        $(pregunta).find("input[name=Puntaje]").each(function (j,puntaje) {
+            $(puntaje).attr("name","Puntaje[" + i + "][" + j +"]");
+        });
     });
 }
 
 
 function validarCamposCrearEncuesta() {
-
     validarFormularioCrearEncuesta();
     var respuestaTextArea = validarTextArea();
     var respuestaPreguntas= validarCamposDinamicos($('#crearEncuesta'),'TextoPregunta','input','*','','*La pregunta es obligatoria');
     var respuestaRespuesta= validarCamposDinamicos($('#crearEncuesta'),'TextoRespuesta','input','*','','*La respuesta es obligatoria');
+    var respuestaPuntaje= validarCamposDinamicos($('#crearEncuesta'),'Puntaje','input','*','','*El puntaje es obligatorio');
     if ($("#crearEncuesta").valid() && respuestaTextArea && respuestaPreguntas && respuestaRespuesta) {
         EditarNombrePreguntasYRespuetas();
+        $("#DescripcionEncuesta").val(CKEDITOR.instances['DesEncuesta'].getData());
         GuardarEncuesta();
     }
 
@@ -137,7 +141,8 @@ function validarFormularioCrearEncuesta(){
 
 function validarTextArea() {
     var respuesta = true;
-    if($("#Descripcion").text =='')
+    var valtextArea = CKEDITOR.instances['DesEncuesta'].getData();
+    if(valtextArea =='')
     {
         $("#errorTextArea").text("*La descripción es obligatoria");
        respuesta =false;

@@ -42,20 +42,17 @@ class EncuestaController extends Controller
         $urlinfo= $request->getPathInfo();
         $request->user()->AutorizarUrlRecurso($urlinfo);
         if($request->ajax()){
-            $sede = $request->all();
-            $idEmpreesa = Auth::user()->Sede->Empresa->id;
-            $sede['Empresa_id'] = $idEmpreesa;
             $repuesta = $this->encuestaServicio->GuardarEncuesta($request);
             if($repuesta == true){
-                $sedes = $this->sedeServicio->ObtenerListaSedes($idEmpreesa);
-                $view = View::make('MEmpresa/Sede/listaSedes')->with('listSedes',$sedes);
+                $encuestas = $this->encuestaServicio->ObtenerListaEncuesta($request->user_id);
+                $view = View::make('MAutonomia/Encuesta/listaEncuestas')->with('listEncuesta',$encuestas);
                 $sections = $view->renderSections();
                 return Response::json($sections['content']);
             }
             else{
                 return $this->proveedorServicio->GuardarProveedor($request);
             }
-        }else return view('MEmpresa/Sede/listaSedes');
+        }else return view('MAutonomia/Encuesta/listaEncuestas');
     }
 
     //Metodo para obtener toda  la lista de encuestas del usuario

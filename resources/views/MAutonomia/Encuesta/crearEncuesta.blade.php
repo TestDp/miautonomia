@@ -19,7 +19,8 @@
                         <div style="margin:0px !important;" class="row">
                             <div class="col-md-12">
                                 Descripción de la encuesta
-                                <textarea id="Descripcion" name="Descripcion"></textarea>
+                                <textarea id="DesEncuesta" name="DesEncuesta"></textarea>
+                                <input type="hidden" id="DescripcionEncuesta" name="DescripcionEncuesta" />
                                 <label class="error-dinamico" id="errorTextArea"></label>
                             </div>
                         </div>
@@ -64,7 +65,6 @@
                                     <span><strong>¿</strong></span>
                                 </div>
                                 <input class="form-control" type="text" id="TextoPregunta" name="TextoPregunta"   />
-                                <input id="TextoTipoPregunta" name="TextoTipoPregunta" type="hidden"  value="1"/>
                                 <div class="input-group-addon alert-warning">
                                     <span><strong>?</strong> </span>
                                 </div>
@@ -107,7 +107,52 @@
                                 <div class="input-group-addon alert-warning">
                                     <span><strong>*</strong></span>
                                 </div>
-                                <input class="form-control" type="text" id="TextoRespuesta" name="TextoRespuesta"   />
+                                <input class="form-control" type="text" id="TextoRespuesta" name="TextoRespuesta"  />
+                                <div class="input-group-addon alert-warning">
+                                    Puntaje
+                                    <input id="Puntaje" name="Puntaje" type="number" />
+                                </div>
+                                <div class="input-group-addon alert-warning">
+                                    <a id="eliminarRespuesta" name="eliminarRespuesta" title="Eliminar Respuesta" data-toggle="modal" data-target="#modalElimianarRespuesta"><span class="glyphicon glyphicon-minus"  ></span></a>
+                                </div>
+                                <!-- Modal confirmación elimminar respuesta-->
+                                <div id="modalElimianarRespuesta" name="modalElimianarRespuesta" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Enunciado de la pregunta</h4>
+                                            </div>
+                                            <div class="modal-body" style="text-align:center; color:black">
+                                                <div class="row">
+                                                    ¿Esta seguro que desea eliminar la respuesta?
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-blue ripple trial-button" data-dismiss="modal" onclick="EliminarRespuesta(this)">Eliminar</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal confirmación elimminar respuesta-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" name="Respuesta">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon alert-warning">
+                                    <span><strong>*</strong></span>
+                                </div>
+                                <input class="form-control" type="text" id="TextoRespuesta" name="TextoRespuesta" />
+                                <div class="input-group-addon alert-warning">
+                                    Puntaje
+                                    <input id="Puntaje" name="Puntaje" type="number" />
+                                </div>
                                 <div class="input-group-addon alert-warning">
                                     <a id="eliminarRespuesta" name="eliminarRespuesta" title="Eliminar Respuesta" data-toggle="modal" data-target="#modalElimianarRespuesta"><span class="glyphicon glyphicon-minus"  ></span></a>
                                 </div>
@@ -146,42 +191,9 @@
                                 </div>
                                 <input class="form-control" type="text" id="TextoRespuesta" name="TextoRespuesta"   />
                                 <div class="input-group-addon alert-warning">
-                                    <a id="eliminarRespuesta" name="eliminarRespuesta" title="Eliminar Respuesta" data-toggle="modal" data-target="#modalElimianarRespuesta"><span class="glyphicon glyphicon-minus"  ></span></a>
+                                    Puntaje
+                                    <input id="Puntaje" name="Puntaje" type="number" />
                                 </div>
-                                <!-- Modal confirmación elimminar respuesta-->
-                                <div id="modalElimianarRespuesta" name="modalElimianarRespuesta" class="modal fade" role="dialog">
-                                    <div class="modal-dialog">
-                                        <!-- Modal content-->
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Enunciado de la pregunta</h4>
-                                            </div>
-                                            <div class="modal-body" style="text-align:center; color:black">
-                                                <div class="row">
-                                                    ¿Esta seguro que desea eliminar la respuesta?
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-blue ripple trial-button" data-dismiss="modal" onclick="EliminarRespuesta(this)">Eliminar</button>
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Modal confirmación elimminar respuesta-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" name="Respuesta">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-addon alert-warning">
-                                    <span><strong>*</strong></span>
-                                </div>
-                                <input class="form-control" type="text" id="TextoRespuesta" name="TextoRespuesta"   />
                                 <div class="input-group-addon alert-warning">
                                     <a id="eliminarRespuesta" name="eliminarRespuesta" title="Eliminar Respuesta" data-toggle="modal" data-target="#modalElimianarRespuesta"><span class="glyphicon glyphicon-minus"  ></span></a>
                                 </div>
@@ -219,6 +231,10 @@
                                     <span><strong>*</strong></span>
                                 </div>
                                 <input class="form-control" type="text" id="TextoRespuesta" name="TextoRespuesta"   />
+                                <div class="input-group-addon alert-warning">
+                                    Puntaje
+                                    <input id="Puntaje" name="Puntaje" type="number" />
+                                </div>
                                 <div class="input-group-addon alert-warning">
                                     <a id="eliminarRespuesta" name="eliminarRespuesta" title="Eliminar Respuesta" data-toggle="modal" data-target="#modalElimianarRespuesta"><span class="glyphicon glyphicon-minus"  ></span></a>
                                 </div>
@@ -259,6 +275,10 @@
                         <span><strong>*</strong></span>
                     </div>
                     <input class="form-control" type="text" id="TextoRespuesta" name="TextoRespuesta"   />
+                    <div class="input-group-addon alert-warning">
+                        Puntaje
+                        <input id="Puntaje" name="Puntaje" type="number" />
+                    </div>
                     <div class="input-group-addon alert-warning">
                         <a id="eliminarRespuesta" name="eliminarRespuesta" title="Eliminar Respuesta" data-toggle="modal" data-target="#modalElimianarRespuesta"><span class="glyphicon glyphicon-minus"  ></span></a>
                     </div>
@@ -313,7 +333,7 @@
     <script src="{{ asset('js/Plugins/EditorTexto/ckeditor.js') }}"></script>
     <script src="{{asset('js/Plugins/jqueryValidate/jquery.validate.js')}}"></script>
     <script type="text/javascript">
-        CKEDITOR.replace('Descripcion');
+        CKEDITOR.replace('DesEncuesta');
     </script>
 
 @endsection

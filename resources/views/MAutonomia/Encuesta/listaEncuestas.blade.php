@@ -25,7 +25,7 @@
                                 @foreach($listEncuesta as $encuesta)
                                     <tr>
                                         <td >{{$encuesta->NombreEncuesta}}</td>
-                                        <td>{{$encuesta->Descripcion}}</td>
+                                        <td>{!!$encuesta->Descripcion!!}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
