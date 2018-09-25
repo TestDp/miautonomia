@@ -8,7 +8,7 @@ try {
 };
 
 
-//Funcion para cargar la vista de crear categoria
+//Funcion para cargar la vista de crear sede
 function ajaxRenderSectionCrearSede() {
     PopupPosition();
     $.ajax({

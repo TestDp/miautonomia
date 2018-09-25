@@ -46,57 +46,14 @@
         <div class="navbar-collapse">
             <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
                 <ul class="nav" id="side-menu">
-                    @if(Auth::user()->buscarRecurso('Inventario'))
+                    @if(Auth::user()->buscarRecurso('Autonomia'))
                         <li>
-                            <a href="#ulInventario" data-toggle="collapse"><i class="fa fa-book nav_icon"></i>Inventario
-                                <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse" id="ulInventario">
-                                @if(Auth::user()->buscarRecurso('ActualizarInventario'))
-                                    <li>
-                                        <a href="#" onclick="ajaxRenderSectionActualizarInventario()" >Actualizar inventario</a>
-                                    </li>
-                                @endif
-                                @if(Auth::user()->buscarRecurso('Productos'))
-                                    <li>
-                                        <a href="#" onclick="ajaxRenderSectionListaProductos()">Productos</a>
-                                    </li>
-                                @endif
-                                @if(Auth::user()->buscarRecurso('Proveedores'))
-                                    <li>
-                                        <a href="#" onclick="ajaxRenderSectionListaProveedores()">Proveedores </a>
-                                    </li>
-                                @endif
-                                @if(Auth::user()->buscarRecurso('Categorias'))
-                                    <li>
-                                        <a href="#" onclick="ajaxRenderSectionListaCategorias()">Categorias </a>
-                                    </li>
-                                @endif
-                                @if(Auth::user()->buscarRecurso('Almacenes'))
-                                    <li>
-                                        <a href="#" onclick="ajaxRenderSectionListaAlmacenes()">Almacenes </a>
-                                    </li>
-                                @endif
-                            </ul>
-                        </li>
-                    @endif
-                    @if(Auth::user()->buscarRecurso('Empresa'))
-                        <li>
-                            <a href="#ulEmpresa" data-toggle="collapse"><i class="fa fa-table nav_icon"></i>Empresa<span
+                            <a href="#ulEmpresa" data-toggle="collapse"><i class="fa fa-table nav_icon"></i>Mi Autonomía<span
                                         class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse" id="ulEmpresa">
-                                @if(Auth::user()->buscarRecurso('Sedes'))
+                                @if(Auth::user()->buscarRecurso('Encuestas'))
                                     <li>
-                                        <a href="#" onclick="ajaxRenderSectionListaSedes()" >Sedes</a>
-                                    </li>
-                                @endif
-                                @if(Auth::user()->buscarRecurso('Usuarios'))
-                                    <li>
-                                        <a href="#" onclick="ajaxRenderSectionListaUsuarios()">Usuarios</a>
-                                    </li>
-                                @endif
-                                @if(Auth::user()->buscarRecurso('Roles'))
-                                    <li>
-                                        <a href="#" onclick="ajaxRenderSectionListaRoles()">Roles</a>
+                                        <a href="#" onclick="ajaxRenderSectionListaEncuestas()" >Encuestas</a>
                                     </li>
                                 @endif
                             </ul>
@@ -107,6 +64,16 @@
                             <a href="#ulAdministrador" data-toggle="collapse"><i class="fa fa-cogs nav_icon"></i>Administrador<span
                                         class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse" id="ulAdministrador">
+                                @if(Auth::user()->buscarRecurso('Usuarios'))
+                                    <li>
+                                        <a href="#" onclick="ajaxRenderSectionListaUsuarios()">Usuarios</a>
+                                    </li>
+                                @endif
+                                @if(Auth::user()->buscarRecurso('Roles'))
+                                    <li>
+                                        <a href="#" onclick="ajaxRenderSectionListaRoles()">Roles</a>
+                                    </li>
+                                @endif
                                 @if(Auth::user()->buscarRecurso('TiposDeDocumentos'))
                                     <li>
                                         <a href="#" onclick="ajaxRenderSectionListaTiposDocumentos()" >Tipos de Documentos</a>
@@ -235,12 +202,7 @@
 <script src="{{ asset('js/MSistema/UnidadDeMedida.js') }}"></script>
 <script src="{{ asset('js/MSistema/Rol.js') }}"></script>
 <script src="{{ asset('js/MSistema/Usuario.js') }}"></script>
-<script src="{{ asset('js/MInventario/Proveedor.js') }}"></script>
-<script src="{{ asset('js/MInventario/Categoria.js') }}"></script>
-<script src="{{ asset('js/MInventario/Almacen.js') }}"></script>
-<script src="{{ asset('js/MInventario/Producto.js') }}"></script>
-<script src="{{ asset('js/MInventario/Inventario.js') }}"></script>
-<script src="{{ asset('js/MEmpresa/Sede.js') }}"></script>
+<script src="{{ asset('js/MAutonomia/Encuesta.js') }}"></script>
 
 </body>
 </html>

@@ -6,6 +6,7 @@ use App\Notifications\ResetPasswordNotification;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use MA\Datos\Modelos\MAutonomia\Encuesta;
 use MA\Datos\Modelos\MEmpresa\Sede;
 use MA\Datos\Modelos\MSistema\Rol;
 
@@ -125,5 +126,9 @@ class User extends Authenticatable
     public function Sede()
     {
         return $this->belongsTo(Sede::class,'Sede_id');
+    }
+
+    public function Encuestas(){
+        return $this->hasMany(Encuesta::class,'Encuesta_id','id');
     }
 }
