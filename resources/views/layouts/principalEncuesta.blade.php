@@ -48,14 +48,9 @@
     <!-- header-starts -->
     <div class="sticky-header header-section ">
         <div class="header-left">
-            <!--toggle button start-->
-            <button id="showLeftPush"><i class="fa fa-bars"></i></button>
-            <!--toggle button end-->
             <!--logo -->
             <div class="logo">
-                <a href="{{ url('/welcome') }}">
                     <img src="{{ asset('images/Logo-home.png') }}"></img>
-                </a>
             </div>
             <!--//logo-->
 
@@ -68,7 +63,6 @@
                     <li class="dropdown profile_details_drop">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                             <div class="profile_img">
-                                <span class="prfil-img"><img src="images/a.png" alt=""> </span>
                                 <div class="user-name">
                                     <p>{{ Auth::user()->name }} </p>
                                     <span>Bienvenido</span>
@@ -79,8 +73,6 @@
                             </div>
                         </a>
                         <ul class="dropdown-menu drp-mnu">
-                            <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
                             <li><a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i
@@ -99,17 +91,7 @@
         <div class="clearfix"></div>
     </div>
 
-    <div id="page-wrapper">
-        <div class="main-page">
-            <div id="_loading" class="_loading" style="display:none;">
-                <div id="capa_loading" class="capa_loading" style="display:none;">Procesando...</div>
-                <img class="img_loading" src="{{ asset('images/loader.gif') }}" /><br>
-            </div>
-            <div id="principalPanel">
-                @yield('content')
-            </div>
-        </div>
-    </div>
+
 </div>
 <!--footer-->
 <div class="footer">
@@ -125,12 +107,7 @@
         showLeftPush = document.getElementById('showLeftPush'),
         body = document.body;
 
-    showLeftPush.onclick = function () {
-        classie.toggle(this, 'active');
-        classie.toggle(body, 'cbp-spmenu-push-toright');
-        classie.toggle(menuLeft, 'cbp-spmenu-open');
-        disableOther('showLeftPush');
-    };
+
 
 
     function disableOther(button) {
@@ -145,14 +122,6 @@
 <!--//scrolling js-->
 <!-- Bootstrap Core JavaScript -->
 <script src="{{ asset('js/bootstrap.js') }}"></script>
-
-<!-- js de la apliacion-->
-<script src="{{ asset('js/Transversal/generales.js') }}"></script>
-<script src="{{ asset('js/MSistema/TipoDocumento.js') }}"></script>
-<script src="{{ asset('js/MSistema/UnidadDeMedida.js') }}"></script>
-<script src="{{ asset('js/MSistema/Rol.js') }}"></script>
-<script src="{{ asset('js/MSistema/Usuario.js') }}"></script>
-<script src="{{ asset('js/MAutonomia/Encuesta.js') }}"></script>
 
 </body>
 </html>
