@@ -19,6 +19,10 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/principal', function () {
+    return view('layouts.principalEncuesta');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -42,57 +42,6 @@
 </head>
 <body class="cbp-spmenu-push">
 <div class="main-content">
-        <div class=" sidebar" role="navigation">
-            <div class="navbar-collapse">
-                <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-                    <ul class="nav" id="side-menu">
-                        @if(Auth::user()->buscarRecurso('Autonomia'))
-                            <li>
-                                <a href="#ulEmpresa" data-toggle="collapse"><i class="fa fa-table nav_icon"></i>Mi Autonomía<span
-                                            class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level collapse" id="ulEmpresa">
-                                    @if(Auth::user()->buscarRecurso('Encuestas'))
-                                        <li>
-                                            <a href="#" onclick="ajaxRenderSectionListaEncuestas()" >Encuestas</a>
-                                        </li>
-                                    @endif
-                                </ul>
-                            </li>
-                        @endif
-                        @if(Auth::user()->buscarRecurso('Administrador'))
-                            <li>
-                                <a href="#ulAdministrador" data-toggle="collapse"><i class="fa fa-cogs nav_icon"></i>Administrador<span
-                                            class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level collapse" id="ulAdministrador">
-                                    @if(Auth::user()->buscarRecurso('Usuarios'))
-                                        <li>
-                                            <a href="#" onclick="ajaxRenderSectionListaUsuarios()">Usuarios</a>
-                                        </li>
-                                    @endif
-                                    @if(Auth::user()->buscarRecurso('Roles'))
-                                        <li>
-                                            <a href="#" onclick="ajaxRenderSectionListaRoles()">Roles</a>
-                                        </li>
-                                    @endif
-                                    @if(Auth::user()->buscarRecurso('TiposDeDocumentos'))
-                                        <li>
-                                            <a href="#" onclick="ajaxRenderSectionListaTiposDocumentos()" >Tipos de Documentos</a>
-                                        </li>
-                                    @endif
-                                    @if(Auth::user()->buscarRecurso('UnidadesDeMedida'))
-                                        <li>
-                                            <a href="#" onclick="ajaxRenderSectionListaUnidades()">Unidad de medida</a>
-                                        </li>
-                                    @endif
-                                </ul>
-                            </li>
-                        @endif
-
-                    </ul>
-                    <!-- //sidebar-collapse -->
-                </nav>
-            </div>
-        </div>
 
 
 <!--left-fixed -navigation-->

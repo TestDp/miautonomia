@@ -103,8 +103,12 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        if($user->Sede->Empresa->EsActiva==0)
-            return redirect('/welcome');
+
+        if($user->hasRole('profesor'))
+        {
+            return redirect('/principal');
+        }
+
     }
 
 
