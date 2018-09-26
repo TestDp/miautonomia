@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/welcome', function () {
+Route::get('/inicio', function () {
     return view('welcome');
 });
 
