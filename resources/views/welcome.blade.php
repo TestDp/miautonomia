@@ -59,8 +59,8 @@
 					<h1 id="logo"><img class="image" src="{{ asset('images/Logo.png') }}"></img></h1>
 					<nav id="nav">
 						<ul>
-							<li><a href="#" class="button primary">Registrarse</a></li>
-							<li><a href="#" class="button primary">Iniciar Sesión</a></li>
+							<li><a href="{{ route('register') }}" class="button primary">Registrarse</a></li>
+							<li><a href="{{ route('login') }}" class="button primary">Iniciar Sesión</a></li>
 						</ul>
 					</nav>
 				</header>

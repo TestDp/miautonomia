@@ -19,6 +19,7 @@
                                 <tr>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Descripción</th>
+                                    <th scope="col"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -26,6 +27,7 @@
                                     <tr>
                                         <td >{{$encuesta->NombreEncuesta}}</td>
                                         <td>{!!$encuesta->Descripcion!!}</td>
+                                        <td></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

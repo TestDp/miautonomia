@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/login', function () {
     return view('auth.login');
 });
 
-Route::get('/inicio', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
