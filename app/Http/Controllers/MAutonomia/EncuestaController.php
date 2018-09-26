@@ -11,6 +11,7 @@ namespace App\Http\Controllers\MAutonomia;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use MA\Negocio\Logica\MAutonomia\CategoriaServicio;
 use MA\Negocio\Logica\MAutonomia\EncuestaServicio;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\View;
@@ -20,8 +21,10 @@ class EncuestaController extends Controller
 {
 
     protected  $encuestaServicio;
-    public function __construct(EncuestaServicio $encuestaServicio){
+    protected  $categoriaServicio;
+    public function __construct(EncuestaServicio $encuestaServicio,CategoriaServicio $categoriaServicio){
         $this->encuestaServicio = $encuestaServicio;
+        $this->categoriaServicio = $categoriaServicio;
     }
 
     //Metodo para cargar  la vista de crear Encuesta
@@ -29,7 +32,8 @@ class EncuestaController extends Controller
     {
         $urlinfo= $request->getPathInfo();
         $request->user()->AutorizarUrlRecurso($urlinfo);
-        $view = View::make('MAutonomia/Encuesta/crearEncuesta');
+        $categorias = $this->categoriaServicio->ObtenerListaCategorias();
+        $view = View::make('MAutonomia/Encuesta/crearEncuesta')->with('listCategorias',$categorias);;
         if($request->ajax()){
             $sections = $view->renderSections();
             return Response::json($sections['content']);
