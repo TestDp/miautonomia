@@ -111,10 +111,13 @@ function EditarNombrePreguntasYRespuetas(){
 function validarCamposCrearEncuesta() {
     validarFormularioCrearEncuesta();
     var respuestaTextArea = validarTextArea();
-    var respuestaPreguntas= validarCamposDinamicos($('#crearEncuesta'),'TextoPregunta','input','*','','*La pregunta es obligatoria');
-    var respuestaRespuesta= validarCamposDinamicos($('#crearEncuesta'),'TextoRespuesta','input','*','','*La respuesta es obligatoria');
-    var respuestaPuntaje= validarCamposDinamicos($('#crearEncuesta'),'Puntaje','input','*','','*El puntaje es obligatorio');
-    if ($("#crearEncuesta").valid() && respuestaTextArea && respuestaPreguntas && respuestaRespuesta) {
+    var respuestaPreguntas = validarCamposDinamicos($('#crearEncuesta'),'TextoPregunta','input','*','','*La pregunta es obligatoria');
+    var respuestaRespuesta = validarCamposDinamicos($('#crearEncuesta'),'TextoRespuesta','input','*','','*La respuesta es obligatoria');
+    var respuestaPuntaje = validarCamposDinamicos($('#crearEncuesta'),'Puntaje','input','*','','*El puntaje es obligatorio');
+    var respuestaCategoria = validarCamposDinamicos($('#crearEncuesta'),'Categoria_id','select','*','','*La categoría es obligatoria');
+    var respuestaExplicacion = validarCamposDinamicos($('#crearEncuesta'),'Explicacion','input','*','','*La explicación es obligatoria');
+    if ($("#crearEncuesta").valid() && respuestaTextArea && respuestaPreguntas &&
+        respuestaRespuesta && respuestaPuntaje && respuestaExplicacion && respuestaCategoria) {
         EditarNombrePreguntasYRespuetas();
         $("#DescripcionEncuesta").val(CKEDITOR.instances['DesEncuesta'].getData());
         GuardarEncuesta();

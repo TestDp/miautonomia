@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-md-4">
                     Categoría
-                    <select id="Categoria_id" name="Categoria_id"  class="form-control">
+                    <select id="Categoria_id" name="Categoria_id[]"  class="form-control">
                         <option value="">Seleccionar</option>
                         @foreach($listCategorias as $categoria)
                             <option value="{{ $categoria->id }}">{{ $categoria->Nombre }}</option>
@@ -110,7 +110,7 @@
                 </div>
                 <div class="col-md-12">
                     Explicación
-                    <input class="form-control" type="text" id="Explicación" name="Explicación"  />
+                    <input class="form-control" type="text" id="Explicacion" name="Explicacion[]"  />
                 </div>
             </div>
             <div class="row" name="Respuesta">

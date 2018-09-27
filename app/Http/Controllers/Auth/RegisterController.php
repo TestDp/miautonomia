@@ -75,7 +75,9 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'CorreoElectronico'=>'required|string|email|max:255',
-            'SitioWeb' =>'required|string|url|max:255'
+            'Edad' =>'required|numeric|max:255',
+            'NivelEducativo' =>'required|string|max:255',
+            'Sexo' =>'required|string|max:255',
         ]);
     }
 
@@ -89,24 +91,6 @@ class RegisterController extends Controller
     {
         DB::beginTransaction();
         try {
-            $empresa = Empresa::create([
-                'NitEmpresa'=> $data['NitEmpresa'],
-                'TipoDocumento'=> 'CC',
-                'IdentificacionRepresentante'=> $data['IdentificacionRepresentante'],
-                'RazonSocial'=> $data['RazonSocial'],
-                'Direccion'=> $data['Direccion'],
-                'Telefono'=> $data['Telefono'],
-                'CorreoElectronico'=> $data['CorreoElectronico'],
-                'SitioWeb'=> $data['SitioWeb'],
-                'EsActiva'=> 1,
-                'LogoEmpresa'=> 'Imagen logo Empresa'
-            ]);
-            $sede = Sede::create([
-                'Nombre' => 'Sede '.$data['RazonSocial'],
-                'Direccion' => $data['Direccion'],
-                'Telefono' => $data['Telefono'],
-                'Empresa_id' =>$empresa->id
-            ]);
             $data['CodigoConfirmacion'] = str_random(25);
             $user = User::create([
                 'name' => $data['name'],
@@ -114,8 +98,11 @@ class RegisterController extends Controller
                 'username' => $data['username'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
-                'Sede_id' =>$sede->id,
-                'CodigoConfirmacion' => $data['CodigoConfirmacion']
+                'Sede_id' =>2,
+                'CodigoConfirmacion' => $data['CodigoConfirmacion'],
+                'Edad' => $data['Edad'],
+                'NivelEducativo' => $data['NivelEducativo'],
+                'Sexo' => $data['Sexo']
             ]);
             $user
                 ->roles()

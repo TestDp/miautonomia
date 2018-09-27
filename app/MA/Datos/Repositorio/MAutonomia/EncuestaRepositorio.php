@@ -39,6 +39,8 @@ class EncuestaRepositorio
                     $Pregunta = new Pregunta();
                     $Pregunta ->Enunciado = $EnunciadoPregunta;
                     $Pregunta ->Encuesta_id = $encuesta -> id;
+                    $Pregunta ->Categoria_id = $requestInfoEncuesta->Categoria_id[$ind];
+                    $Pregunta ->Explicacion = $requestInfoEncuesta->Explicacion[$ind];
                     $Pregunta ->save();// se guarda la pregunta para obtner el id y poder relacionarlo con la respuesta
                     //se recorre el array en la posicion ind para sacar las respuestas relacionadas a las preguntas
                     $indPuntaje =0;
