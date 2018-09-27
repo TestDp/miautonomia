@@ -5,9 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="widget-shadow">
-                <div class="login-top"><img class="media-object" src="{{ asset('images/Logo.png') }}"></img></div>
-
-                <div class="card-body">
+                <div style="background-size: cover; background-image: url('{{ asset('images/pic02.jpg') }}');" class="card-body">
                     <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
                         @csrf
 

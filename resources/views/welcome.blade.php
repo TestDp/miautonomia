@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Miautonomía</title>
+        <title>Miautonomía | Corporación Mujeres que crean</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -91,7 +91,7 @@
 			<!-- Footer -->
 				<footer id="footer">
 					<ul class="copyright">
-						<li>Desarrollado por: <a href="https://dpsoluciones.co">DPSoluciones</a></li>
+						<li>Desarrollado por <a href="https://dpsoluciones.co">DPSoluciones</a></li>
 					</ul>
 				</footer>
 	
