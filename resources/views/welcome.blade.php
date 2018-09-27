@@ -78,6 +78,7 @@
 								</div>
 								<div class="col-4 col-12-medium">
 								<span class="image"><img style="width: 100%;" src="images/miau.gif" alt="" /></span>
+								<span class="image"><img style="margin-top: -140px; width: 100%;" src="images/hojas-secas.png" alt="" /></span>
 								</div>
 								<div class="col-4 col-12-medium">
 							<span class="image"><img style="width: 100%;" src="images/arbol-right.png" alt="" /></span>

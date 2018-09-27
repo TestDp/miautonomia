@@ -3,10 +3,7 @@
 @section('content')
 			<div class="main-page login-page ">
 				<div class="widget-shadow">
-					<div class="login-top">
-						<h4><img class="media-object" src="{{ asset('images/Logo.png') }}"></img> </h4>
-					</div>
-					<div class="login-body">
+					<div style="background-size: cover; background-image: url('{{ asset('images/pic02.jpg') }}');" class="login-body">
 						<form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                         @csrf
                         <div class="form-group row">
