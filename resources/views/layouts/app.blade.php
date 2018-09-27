@@ -58,7 +58,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
 
-                <a href="{{ url('/welcome') }}"><img class="media-object" src="{{ asset('images/Logo.png') }}"></img></a>
+                <a href="{{ url('/') }}"><img class="media-object" src="{{ asset('images/Logo.png') }}"></img></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

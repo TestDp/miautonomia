@@ -74,7 +74,6 @@ class RegisterController extends Controller
             'username' => 'required|max:15|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'CorreoElectronico'=>'required|string|email|max:255',
             'Edad' =>'required|numeric|max:255',
             'NivelEducativo' =>'required|string|max:255',
             'Sexo' =>'required|string|max:255',
