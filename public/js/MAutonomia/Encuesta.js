@@ -241,6 +241,8 @@ function validarRespuetas() {
             text: "Muchas gracias por responder la encuesta!",
             icon: "success",
             button: "OK",
+        }).then((value) => {
+            window.location.href = '../encuestas';
         });
     }else{
         swal({
