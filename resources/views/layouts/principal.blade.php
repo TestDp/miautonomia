@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>FACIN | Facturación e Inventario</title>
+    <title>Miautonomía | Corporación Mujeres que crean</title>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -61,12 +61,12 @@
                         @endif
                         @if(Auth::user()->buscarRecurso('Administrador'))
                             <li>
-                                <a href="#ulAdministrador" data-toggle="collapse"><i class="fa fa-cogs nav_icon"></i>Administrador<span
+                                <a href="#ulAdministrador" data-toggle="collapse"><i class="fa fa-cogs nav_icon"></i>Administradora<span
                                             class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level collapse" id="ulAdministrador">
                                     @if(Auth::user()->buscarRecurso('Usuarios'))
                                         <li>
-                                            <a href="#" onclick="ajaxRenderSectionListaUsuarios()">Usuarios</a>
+                                            <a href="#" onclick="ajaxRenderSectionListaUsuarios()">Usuarias</a>
                                         </li>
                                     @endif
                                     @if(Auth::user()->buscarRecurso('Roles'))
@@ -104,9 +104,7 @@
             <!--toggle button end-->
             <!--logo -->
             <div class="logo">
-                <a href="{{ url('/welcome') }}">
-                    <img src="{{ asset('images/Logo-home.png') }}"></img>
-                </a>
+                <a href="{{ url('/') }}"><img class="media-object" style="width:40%;" src="{{ asset('images/Logo.png') }}"></img></a>
             </div>
             <!--//logo-->
 
@@ -122,7 +120,7 @@
                                 <span class="prfil-img"><img src="images/a.png" alt=""> </span>
                                 <div class="user-name">
                                     <p>{{ Auth::user()->name }} </p>
-                                    <span>Bienvenido</span>
+                                    <span>Bienvenida</span>
                                 </div>
                                 <i class="fa fa-angle-down lnr"></i>
                                 <i class="fa fa-angle-up lnr"></i>
@@ -130,8 +128,6 @@
                             </div>
                         </a>
                         <ul class="dropdown-menu drp-mnu">
-                            <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
                             <li><a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i
@@ -164,7 +160,7 @@
 </div>
 <!--footer-->
 <div class="footer">
-    <p>FACIN | Facturación e Inventario - Desarrollado por <a href="https://dpsoluciones.co/" target="_blank">DPSoluciones</a>
+    <p>Desarrollado por <a href="https://dpsoluciones.co/" target="_blank">DPSoluciones</a>
     </p>
 </div>
 <!--//footer-->

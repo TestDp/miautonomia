@@ -84,7 +84,7 @@ button#showLeftPush {
 	outline:none;
 }
 button#showLeftPush:hover {
-    color: #ff7518;
+    color: #e86e48;
 }
 /*--push-menu-css--*/
 .cbp-spmenu {
@@ -95,7 +95,7 @@ button#showLeftPush:hover {
     height: 100%;
     top: 76px;
     z-index: 1000;
-    background-color:#ff7518;
+    background-color:#e86e48;
 	padding: 2em 0;
 	overflow-y: auto;
 }
@@ -249,23 +249,23 @@ ul.dropdown-menu{
     margin: 0;
     z-index: 10;
     font-size: 0.9em;
-    color: #ff7518;
+    color: #e86e48;
     padding: 0.5em 1em;
 	border: 2px solid rgba(79, 82, 186, 0.3);
 	-webkit-appearance: none; /* for box shadows to show on iOS */
 	font-family: 'Roboto Condensed', sans-serif;
 }
 .sb-search-input::-webkit-input-placeholder {
-	color:#ff7518;
+	color:#e86e48;
 }
 .sb-search-input:-moz-placeholder {
-	color: #ff7518;
+	color: #e86e48;
 }
 .sb-search-input::-moz-placeholder {
-	color: #ff7518;
+	color: #e86e48;
 }
 .sb-search-input:-ms-input-placeholder {
-	color: #ff7518;
+	color: #e86e48;
 }
 .input__label {
 	-webkit-font-smoothing: antialiased;
@@ -498,7 +498,7 @@ i.fa.fa-tasks{
 	 font-size: 1em;
 }
 .notification_bottom a:hover {
-    color:#ff7518;
+    color:#e86e48;
 }
 .notification_bottom h3 a{	
 	color: #717171;
@@ -659,7 +659,7 @@ i.icon_6{
 	background:#5cb85c;
 } 
 .progress-striped .light-blue{
-	background:#ff7518;
+	background:#e86e48;
 } 
 .progress-striped .red{
 	background:#d9534f;
@@ -775,7 +775,7 @@ ul.dropdown-menu {
     position: absolute;
     top: 34%;
     right: 8%;
-    color: #ff7518;
+    color: #e86e48;
     font-size: 1.6em;
 }
 .profile_details ul li ul.dropdown-menu.drp-mnu {
@@ -790,7 +790,7 @@ ul.dropdown-menu.drp-mnu li {
 }
 .user-name p{
 	font-size:1em;
-	color:#ff7518;
+	color:#e86e48;
 	line-height:1em;
 	font-weight:700;
 }
@@ -838,7 +838,7 @@ ul.dropdown-menu.drp-mnu li {
 .stats-left {
     float: left;
     width: 70%;
-    background-color: #ff7518;
+    background-color: #e86e48;
 	text-align: center;
 	padding: 1em;
 }
@@ -897,7 +897,7 @@ h4.title {
 /*--//charts--*/
 .widget-shadow {
     background-color: #fff;
-	border-radius: 30px;
+	border-radius: 0px;
     box-shadow: 0 -1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
 	-webkit-box-shadow: 0 -1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
 	-moz-box-shadow: 0 -1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
@@ -942,7 +942,7 @@ h4.title {
     font-weight: 500;
 }
 .stats-table h5 {
-    color: #ff7518;
+    color: #e86e48;
     font-size: 0.9em;
 }
 .stats-table h5.down {
@@ -1190,7 +1190,7 @@ h3.hdg {
 }
 .grid_5 h3, .grid_5 h2, .grid_5 h1, .grid_5 h4, .grid_5 h5, h3.hdg {
 	margin-bottom:0.6em;
-	color: #ff7518;
+	color: #e86e48;
 }
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
   z-index: 0;
@@ -1472,7 +1472,7 @@ button.note-color-btn {
     margin-left: .5em;
 }
 .validation-grids .btn-primary{
-    background: #ff7518 !important;
+    background: #e86e48 !important;
     color: #FFF;
     border: none;
     font-size: 0.9em;
@@ -1606,14 +1606,14 @@ button.note-color-btn {
     outline: none;
     cursor: pointer;
     color: #fff;
-    background: #ff7518;
+    background: #e86e48;
     width: 100%;
     padding: .5em 1em;
     font-size: 1em;
     margin: 0.5em 0 0;
 }
 .login-page input[type="submit"]:hover{
-    background: #ff7518;
+    background: #e86e48;
 }
 .login-page-bottom {
     text-align: center;
@@ -1711,7 +1711,7 @@ p.creating {
 }
 .signup-page h5,.signup-page h6{
 	margin: 0 0 1em;
-    color:#ff7518;
+    color:#e86e48;
     font-size: 1.1em;
 }
 .signup-page h6{
@@ -1743,7 +1743,7 @@ p.creating {
     outline: none;
     cursor: pointer;
     color: #fff;
-    background: #ff7518;
+    background: #e86e48;
     width: 23%;
     padding: .5em 1em;
     font-size: 1em;
@@ -1984,7 +1984,7 @@ h4.modal-title {
     transform: rotate(-45deg);
     height: .4rem;
     width: .8rem;
-    border-color: #ff7518;
+    border-color: #e86e48;
     border-top-style: none;
     border-right-style: none;
     border-width: 2px;
@@ -2019,7 +2019,7 @@ h4.modal-title {
     background: none;
     font-size: 1em;
     margin-top: 0.5em;
-    color: #ff7518;
+    color: #e86e48;
 	outline:none;
 	font-weight: 600;
 }
@@ -2110,7 +2110,7 @@ h4.modal-title {
 .compose-right .alert.alert-info {
     padding: 10px 20px;
     font-size: 0.9em;
-    color: #ff7518;
+    color: #e86e48;
 	background-color: rgba(212, 213, 243, 0.98);
     border-color: rgba(151, 153, 230, 0.41);
 	border-radius: inherit;
@@ -2144,8 +2144,8 @@ h4.modal-title {
 }
 .compose-right input[type="submit"] {
     font-size: 0.9em;
-    background-color: #ff7518;
-    border: 1px solid #ff7518;
+    background-color: #e86e48;
+    border: 1px solid #e86e48;
     color: #fff;
     padding: 0.4em 1em;
     margin-top: 1em;
@@ -2158,7 +2158,7 @@ h4.modal-title {
 	width: 32%;
 }
 .profile-top {
-    background-color: #ff7518;
+    background-color: #e86e48;
     text-align: center;
 	padding: 1.5em;
 }
@@ -2196,8 +2196,8 @@ h4.title3 {
     width: 85%;
 }
 .row-middle .profile-right {
-    border-top: 1px dotted #ff7518;
-    border-bottom: 1px dotted #ff7518;
+    border-top: 1px dotted #e86e48;
+    border-bottom: 1px dotted #e86e48;
     padding: 1em 0;
 }
 .profile-row .profile-icon {
@@ -2237,7 +2237,7 @@ i.fa.fa-facebook.profile-icon {
 }
 .profile-btm ul li h4 {
     font-size: 1.3em;
-    color: #ff7518;
+    color: #e86e48;
     font-weight: 900;
 }
 .profile-btm ul li h5 {
@@ -2397,7 +2397,7 @@ i.fa.fa-facebook.profile-icon {
 }
 .header-top li p.cen {
     background: #FFFFFF;
-    color: #ff7518;
+    color: #e86e48;
     border-radius: 0 3px 3px 0;
 }
 .whe {
@@ -2428,7 +2428,7 @@ i.fa.fa-facebook.profile-icon {
     border-right: none;
 }
 .header-head h4 {
-    color: #ff7518;
+    color: #e86e48;
     font-size: 1.1em;
     margin-bottom: 1em;
 }
@@ -2484,7 +2484,7 @@ i.fa.fa-facebook.profile-icon {
 	text-align:center;
 }
 .widget_1_box .bg-info {
-    background-color: #ff7518;
+    background-color: #e86e48;
 }
 .widget_1_box .bg-success {
     background-color: #F2B33F;
@@ -2511,7 +2511,7 @@ i.fa.fa-facebook.profile-icon {
     background: #EB621F;
 }
 .widget_1_box .progress-striped .orange {
-    background: #ff7518;
+    background: #e86e48;
 }
 .widget_1_box .progress-striped .bar {
     background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));

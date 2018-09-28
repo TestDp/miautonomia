@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/respuestaCorreo', function () {
+    return view('auth.RespuestaRegistro');
+});
+
 Route::get('/principal', function () {
     return view('layouts.principalEncuesta');
 });

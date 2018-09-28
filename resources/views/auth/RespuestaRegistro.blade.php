@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Confirma tu cuenta</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{{ asset('css/main.css') }}" />
 
     <!-- Styles -->
     <style>
@@ -71,20 +72,20 @@
             @auth
                 <a href="{{ url('/home') }}">Home</a>
             @else
-                <a href="{{ route('login') }}">Login</a>
-                <a href="{{ route('register') }}">Register</a>
+                <a class="button primary" href="{{ route('login') }}">Inicio de Sesión</a>
+                <a class="button primary" href="{{ route('register') }}">Registro</a>
             @endauth
         </div>
     @endif
 
-    <div class="content">
-        @if($respuesta == 'true')
-            <h3>Muchas gracias por registrarse, se ha enviado un correo electrónico para verificación de la cuenta </h3>
+    <div style="padding: 10%; background-size: cover; background-image: url('{{ asset('images/pic02.jpg') }}');"  class="py-4">
+      @if($respuesta == 'true')
+            <h2 style="font-weight:700; text-align: center; color:#000;">Muchas gracias por registrarse, se ha enviado un correo electrónico para verificación de la cuenta </h2>
         @else
             @if($respuesta =='sinPago')
-                <h3>No se ha realizado el pago de la suscripción</h3>
+                <h3 style="font-weight:700; text-align: center; color:#000;">No se ha realizado el pago de la suscripción</h3>
             @else
-                <h3>No se ha verificado la cuenta, por favor verifcar su cuenta </h3>
+                <h3 style="font-weight:700; text-align: center; color:#000;">No se ha verificado la cuenta, por favor verifcar su cuenta </h3>
             @endif
         @endif
     </div>
