@@ -14,5 +14,5 @@ use Illuminate\Database\Eloquent\Model;
 class Rol_Por_Usuario extends Model
 {
     protected $table = 'Tbl_Roles_Por_Usuarios';
-    protected $fillable =['Rol_id','users_id'];
+    protected $fillable =['Rol_id','user_id'];
 }

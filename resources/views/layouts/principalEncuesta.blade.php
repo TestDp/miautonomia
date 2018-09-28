@@ -98,8 +98,7 @@
                 <div class="hover_color_wrapper">
                     @foreach($encuestas as $encuesta)
                         <fieldset>
-                            <button class="button primary" style="font-weight:700; font-family: sans-serif; padding-top: 2%;" name ="id_encuesta" value = "{{ $encuesta->id }}">{{ $encuesta->NombreEncuesta }} {obtenerFormularioEncuesta($idEncuesta)}</button>
-
+                            <a href="{{url('FormularioEncuesta', ['idEncuesta' => $encuesta->id ])}}">{{ $encuesta->NombreEncuesta }}</a>
                         </fieldset>
                     @endforeach
                 </div>

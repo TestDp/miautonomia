@@ -74,16 +74,6 @@
                                             <a href="#" onclick="ajaxRenderSectionListaRoles()">Roles</a>
                                         </li>
                                     @endif
-                                    @if(Auth::user()->buscarRecurso('TiposDeDocumentos'))
-                                        <li>
-                                            <a href="#" onclick="ajaxRenderSectionListaTiposDocumentos()" >Tipos de Documentos</a>
-                                        </li>
-                                    @endif
-                                    @if(Auth::user()->buscarRecurso('UnidadesDeMedida'))
-                                        <li>
-                                            <a href="#" onclick="ajaxRenderSectionListaUnidades()">Unidad de medida</a>
-                                        </li>
-                                    @endif
                                 </ul>
                             </li>
                         @endif
