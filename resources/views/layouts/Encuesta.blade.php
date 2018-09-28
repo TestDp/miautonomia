@@ -45,7 +45,7 @@
 
 </head>
 <body class="is-preload landing">
-<div id="page-wrapper">
+<div style="background-size: contain; background-image: url('{{ asset('images/fondo-preguntas.png') }}');" id="page-wrapper">
 
 
 <!--left-fixed -navigation-->

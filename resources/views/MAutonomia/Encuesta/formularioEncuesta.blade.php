@@ -1,21 +1,26 @@
-@extends('layouts.principal')
+@extends('layouts.Encuesta')
 
 @section('content')
 
     @if(count($encuesta->preguntas) >0)
-        <section id="banner">
+        <section>
             <div class="content">
-                <header>
-                    <h2 style="font-size: 20px; font-family: sans-serif; color:#2297e1;">Responde por favor la siguiente encuesta</h2>
+                
+					<ul>
                     @foreach($encuesta->preguntas as $PreguntasFormulario)
+					<li>
+					<div class="row">
+								<div class="col-12-medium">
                         <fieldset name="RespuestasUsuario">
-                            <div style="font-weight:700; font-family: sans-serif; padding-top: 2%; color: #8d562f;" name ="id_pregunta" value = "{{ $PreguntasFormulario->id }}"> ¿ {{ $PreguntasFormulario->Enunciado }} ?</div>
-                            @foreach($PreguntasFormulario->Respuestas as $respuestas)
-                                <div class="col-md-6" >
+                            <div style="font-weight:700; color: #8d562f;" name ="id_pregunta" value = "{{ $PreguntasFormulario->id }}"> ¿ {{ $PreguntasFormulario->Enunciado }} ?
+							</div>
+							<img class="media-object" style="display:block; margin:auto;" src="{{ asset('images/naranjas.png') }}"></img>
+							@foreach($PreguntasFormulario->Respuestas as $respuestas)
+                                <div class="col-sm-2 col-sm-offset-1" >
                                     <div class="radio">
-                                        <div style="font-family: sans-serif; line-height: 30px;"><input type="radio" onclick="guardarRespuestaUsuario(this,{{$respuestas->id}})" id="Respuesta_id" name="Respuesta_id[{{$loop->parent->index}}]" data-toggle="modal" data-target="#modalExplicacionRespuesta{{$respuestas->id}}">
+                                        <label><input type="radio" onclick="guardarRespuestaUsuario(this,{{$respuestas->id}})" id="Respuesta_id" name="Respuesta_id[{{$loop->parent->index}}]" data-toggle="modal" data-target="#modalExplicacionRespuesta{{$respuestas->id}}">
                                             <b>{{$respuestas->Descripcion}}</b>
-                                        </div>
+                                        </label>
                                     </div>
                                     <!-- Modal confirmación elimminar respuesta-->
                                     @if($respuestas->Puntaje >= 0)
@@ -61,9 +66,15 @@
                                 </div>
                             @endforeach
                             <label id="respuestaSinResponder"></label>
+							<img class="media-object" style="width:20%; display:block; margin:auto;" src="{{ asset('images/ojos.gif') }}"></img>
+							<div style="border-bottom: 5px solid #e86e48; width: 40%; display: block; margin: auto;"></div>
                         </fieldset>
+						</div>
+						</div>
+						</li>
                     @endforeach
-                </header>
+					</ul>
+                
             </div>
         </section>
     @endif

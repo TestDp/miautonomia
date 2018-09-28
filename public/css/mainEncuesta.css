@@ -23,7 +23,9 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;}
+	vertical-align: baseline;
+	text-align: center;
+	}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -123,6 +125,8 @@ input, select, textarea {
 	strong, b {
 		color: #ffffff;
 		font-weight: 300;
+		background: #e86e48;
+		padding: 5%;
 	}
 
 	em, i {
@@ -1112,11 +1116,11 @@ input, select, textarea {
 
 				.row {
 					margin-top: 0;
-					margin-left: -2.5em;
+					margin-left: 0;
 				}
 
 					.row > * {
-						padding: 0 0 0 2.5em;
+						padding: 0 0 0 0;
 					}
 
 					.row.gtr-uniform {
@@ -2209,9 +2213,11 @@ input, select, textarea {
 	label {
 		color: #ffffff;
 		display: block;
-		font-size: 0.9em;
+		font-size: 15px;
 		font-weight: 300;
 		margin: 0 0 1em 0;
+		background: #e86e48;
+		padding: 5%;
 	}
 
 	input[type="text"],
@@ -2299,7 +2305,7 @@ input, select, textarea {
 		margin-right: -2em;
 		opacity: 0;
 		width: 1em;
-		z-index: -1;
+		z-index: 100;
 	}
 
 		input[type="checkbox"] + label,
@@ -2550,7 +2556,7 @@ input, select, textarea {
 	}
 
 		ul li {
-			padding-left: 0.5em;
+			padding: 8% 8% 0 8%;
 		}
 
 		ul.alt {

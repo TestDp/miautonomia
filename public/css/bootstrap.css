@@ -1921,7 +1921,7 @@ pre code {
     margin-left: 16.66666667%;
   }
   .col-sm-offset-1 {
-    margin-left: 8.33333333%;
+    margin-left: 2.33333333%;
   }
   .col-sm-offset-0 {
     margin-left: 0;
@@ -5778,6 +5778,7 @@ button.close {
 .modal-backdrop.fade {
   filter: alpha(opacity=0);
   opacity: 0;
+  z-index:10;
 }
 .modal-backdrop.in {
   filter: alpha(opacity=50);
