@@ -9,9 +9,34 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Miautonomía | Corporación Mujeres que crean</title>
-    <!-- Fonts -->
+     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ asset('css/bootstrap.css') }}" rel='stylesheet' type='text/css'/>
+    <!-- Custom CSS -->
+    <link href="{{ asset('css/style.css') }}" rel='stylesheet' type='text/css'/>
+    <!-- font CSS -->
+    <!-- font-awesome icons -->
+    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!-- js-->
+    <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+
+    <script src="{{ asset('js/modernizr.custom.js') }}"></script>
+    <!--webfonts-->
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic'
+          rel='stylesheet' type='text/css'>
+    <!--//webfonts-->
+    <!--animate-->
+    <link href="{{ asset('css/animate.css') }}" rel="stylesheet" type="text/css" media="all">
+    <script src="{{ asset('js/wow.min.js') }}"></script>
+    <!-- Metis Menu -->
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <!-- sweet plugins-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	
 		<link rel="stylesheet" href="{{ asset('css/mainEncuesta.css') }}" />
