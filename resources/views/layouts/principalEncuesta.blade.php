@@ -37,46 +37,70 @@
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <!-- sweet plugins-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	
+			<link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+		<noscript><link rel="stylesheet" href="{{ asset('css/noscript.css') }}" /></noscript>
 
 
 </head>
-<body class="cbp-spmenu-push">
-<div class="main-content">
+<body>
+<div class="page-wrapper">
 
-
+<div class="fallingLeaves">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	
+	
+	</div>
+	
 <!--left-fixed -navigation-->
     <!-- header-starts -->
-    <div style="display:none;" class="sticky-header header-section ">
-        <div class="header-left">
-            <!--logo -->
-            <div class="logo">
-                    <img src="{{ asset('images/Logo-home.png') }}"></img>
-            </div>
-            <!--//logo-->
-
-            <div class="clearfix"></div>
-        </div>
-        <div class="header-right">
-
-            <div class="profile_details">
+    <header id="header">
+        <h1 id="logo"><img class="image" src="{{ asset('images/Logo.png') }}"></img></h1>
+			<nav id="nav">
                 <ul>
                     <li class="dropdown profile_details_drop">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                             <div class="profile_img">
                                 <div class="user-name">
                                     <p>{{ Auth::user()->name }} </p>
-                                    <span>Bienvenido</span>
+                                    <p>Bienvenid@</p>
                                 </div>
                                 <i class="fa fa-angle-down lnr"></i>
                                 <i class="fa fa-angle-up lnr"></i>
-                                <div class="clearfix"></div>
                             </div>
                         </a>
                         <ul class="dropdown-menu drp-mnu">
                             <li><a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"><i
-                                            class="fa fa-sign-out"></i> Logout</a>
+                                                     document.getElementById('logout-form').submit();">
+													 <i class="fa fa-sign-out"></i> Logout</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                       style="display: none;">
                                     @csrf
@@ -85,39 +109,24 @@
                         </ul>
                     </li>
                 </ul>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="clearfix"></div>
-    </div>
+			</nav>
+    </header>
 
-
-
-<div class="body">
-        <div class="column one">
-                <div class="hover_color_wrapper">
-                    @foreach($encuestas as $encuesta)
-                        <fieldset>
-                            <a href="{{url('FormularioEncuesta', ['idEncuesta' => $encuesta->id ])}}">{{ $encuesta->NombreEncuesta }}</a>
-                        </fieldset>
-                    @endforeach
-                </div>
-        </div>
-        <br/>
-</div>
-
-    <div id="principalPanel">
+			
+	<div id="principalPanel">
         @yield('content')
     </div>
 
+
+					<!-- Footer -->
+				<footer id="footer">
+					<ul class="copyright">
+						<li>Desarrollado por <a href="https://dpsoluciones.co">DPSoluciones</a></li>
+					</ul>
+				</footer>
+				
 </div>
-<!--footer-->
-<div class="footer">
-    <p>FACIN | Facturación e Inventario - Desarrollado por <a href="https://dpsoluciones.co/" target="_blank">DPSoluciones</a>
-    </p>
-</div>
-<!--//footer-->
-</div>
+
 
 <!-- Classie -->
 <script src="{{ asset('js/classie.js') }}"></script>
