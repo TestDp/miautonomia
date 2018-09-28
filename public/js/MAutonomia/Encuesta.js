@@ -148,7 +148,7 @@ function validarTextArea() {
     if(valtextArea =='')
     {
         $("#errorTextArea").text("*La descripción es obligatoria");
-       respuesta =false;
+        respuesta =false;
     }else{
         $("#errorTextArea").text('');
     }
@@ -185,6 +185,33 @@ function GuardarEncuesta() {
                 button: "OK",
             });
 
+        }
+    });
+}
+
+
+
+//función para guardar la respuesta del usuario
+function guardarRespuestaUsuario(element,idrespuesta) {
+    $.ajax({
+        type: 'GET',
+        url: urlBase +'guardarRespuesta/'+idrespuesta,
+        dataType: 'json',
+        success: function (respuestaPeticion) {
+            if(respuestaPeticion)
+            {
+                $(element).closest('fieldset[name=RespuestasUsuario]').find('input').each(function (j,respuestaUsuario) {
+                    $(respuestaUsuario).attr('disabled','disabled');
+                });
+            }
+        },
+        error: function (data) {
+            var errors = data.responseJSON;
+            if (errors) {
+                $.each(errors, function (i) {
+                    console.log(errors[i]);
+                });
+            }
         }
     });
 }
