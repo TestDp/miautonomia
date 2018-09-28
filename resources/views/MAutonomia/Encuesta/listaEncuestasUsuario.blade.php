@@ -12,9 +12,9 @@
 								</header>	
 								</div>
 								<div class="col-4 col-12-medium">
-									<div class="widget-shadow">
+									<div style="text-align: center; color: #8d562f; font-weight: 700;" class="widget-shadow">
 										<div style="background-size: cover; background-image: url('{{ asset('images/pic02.jpg') }}');" class="login-body">
-										<img class="media-object" src="{{ asset('images/hojas-amarillas.png') }}"></img>
+										<img class="media-object" style="width:100%;" src="{{ asset('images/hojas-amarillas.png') }}"></img>
 											@foreach($encuestas as $encuesta)
 												<fieldset>
 													<a href="{{url('FormularioEncuesta', ['idEncuesta' => $encuesta->id ])}}">{{ $encuesta->NombreEncuesta }}</a>
