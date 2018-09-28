@@ -1,9 +1,9 @@
-@extends('layouts.Encuesta')
+@extends('layouts.principal')
 
 @section('content')
 
     @if(count($encuesta->preguntas) >0)
-        <section>
+        <section id="seccionPreguntas">
             <div class="content">
                 
 					<ul>
@@ -17,11 +17,11 @@
 							<img class="media-object" style="display:block; margin:auto;" src="{{ asset('images/naranjas.png') }}"></img>
 							@foreach($PreguntasFormulario->Respuestas as $respuestas)
                                 <div class="col-sm-2 col-sm-offset-1" >
-                                    <div class="radio">
+
                                         <label><input type="radio" onclick="guardarRespuestaUsuario(this,{{$respuestas->id}})" id="Respuesta_id" name="Respuesta_id[{{$loop->parent->index}}]" data-toggle="modal" data-target="#modalExplicacionRespuesta{{$respuestas->id}}">
                                             <b>{{$respuestas->Descripcion}}</b>
                                         </label>
-                                    </div>
+
                                     <!-- Modal confirmación elimminar respuesta-->
                                     @if($respuestas->Puntaje >= 0)
                                         <div id="modalExplicacionRespuesta{{$respuestas->id}}" name="modalExplicacionRespuesta" class="modal fade" role="dialog">
@@ -65,7 +65,7 @@
                                 <!-- Modal confirmación elimminar respuesta-->
                                 </div>
                             @endforeach
-                            <label id="respuestaSinResponder"></label>
+                            <label id="respuestaSinResponder" name="respuestaSinResponder"></label>
 							<img class="media-object" style="width:20%; display:block; margin:auto;" src="{{ asset('images/ojos.gif') }}"></img>
 							<div style="border-bottom: 5px solid #e86e48; width: 40%; display: block; margin: auto;"></div>
                         </fieldset>
@@ -80,7 +80,7 @@
     @endif
     <div class="row">
         <div class="col-md-12">
-            <button type="submit" onclick="" class="btn btn-primary">
+            <button  onclick="validarRespuetas()" class="btn btn-blue ripple trial-button">
                 Finalizar
             </button>
         </div>

@@ -221,7 +221,33 @@ function guardarRespuestaUsuario(element,idrespuesta) {
 
 function validarRespuetas() {
     var respuesta = true;
-    $('#banner').find('radio').each(function (j,respuestaUsuario) {
-        
+    $('#seccionPreguntas').find('fieldset[name=RespuestasUsuario]').each(function (j,pregunta) {
+        var respuestaPregunta = true;
+        $(pregunta).find('input[type=radio]').each(function (j,respuestaUsuario) {
+            if( $(respuestaUsuario).prop( "checked" )){
+                respuestaPregunta = false;
+            }
+        });
+        if(respuestaPregunta){
+            $(pregunta).find('label[name=respuestaSinResponder]').text('*se debe seleccionar una opción');
+            respuesta=false;
+        }else{
+            $(pregunta).find('label[name=respuestaSinResponder]').text('');
+        }
     });
+    if(respuesta){
+        swal({
+            title: "Encuesta registrada con exito!",
+            text: "Muchas gracias por responder la encuesta!",
+            icon: "success",
+            button: "OK",
+        });
+    }else{
+        swal({
+            title: "Faltan preguntas por responder!",
+            text: "se deben responder todas la preguntas para finalizar!",
+            icon: "error",
+            button: "OK",
+        });
+    }
 }

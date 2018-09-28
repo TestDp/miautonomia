@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Miautonomía | Corporación Mujeres que crean</title>
-     <!-- Fonts -->
+    <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <!-- Scripts -->
@@ -38,9 +38,9 @@
     <!-- sweet plugins-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-	
-		<link rel="stylesheet" href="{{ asset('css/mainEncuesta.css') }}" />
-		<noscript><link rel="stylesheet" href="{{ asset('css/noscript.css') }}" /></noscript>
+
+    <link rel="stylesheet" href="{{ asset('css/mainEncuesta.css') }}" />
+    <noscript><link rel="stylesheet" href="{{ asset('css/noscript.css') }}" /></noscript>
 
 
 </head>
@@ -48,38 +48,38 @@
 <div style="background-size: contain; background-image: url('{{ asset('images/fondo-preguntas.png') }}');" id="page-wrapper">
 
 
-<!--left-fixed -navigation-->
+    <!--left-fixed -navigation-->
     <!-- header-starts -->
     <header id="header">
         <a href="{{ url('/') }}"><h1 id="logo"><img class="image" src="{{ asset('images/Logo.png') }}"></img></h1></a>
-			<nav id="nav">
-                <ul>
-                    <li class="dropdown profile_details_drop">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                            <div class="profile_img">
-                                <div class="user-name">
-                                    <p>Hola {{ Auth::user()->name }} </p>
-                                </div>
+        <nav id="nav">
+            <ul>
+                <li class="dropdown profile_details_drop">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <div class="profile_img">
+                            <div class="user-name">
+                                <p>Hola {{ Auth::user()->name }} </p>
                             </div>
-                        </a>
-                    </li>
-                </ul>
-			</nav>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
-			
-	<div>
+
+    <div>
         @yield('content')
     </div>
 
 
-					<!-- Footer -->
-				<footer id="footer">
-					<ul class="copyright">
-						<li>Desarrollado por <a href="https://dpsoluciones.co">DPSoluciones</a></li>
-					</ul>
-				</footer>
-				
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="copyright">
+            <li>Desarrollado por <a href="https://dpsoluciones.co">DPSoluciones</a></li>
+        </ul>
+    </footer>
+
 </div>
 
 
@@ -106,14 +106,17 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="{{ asset('js/bootstrap.js') }}"></script>
 
-			<script src="{{ asset('js/jquery.min.js') }}"""></script>
-			<script src="{{ asset('js/jquery.scrolly.min.js') }}"></script>
-			<script src="{{ asset('js/jquery.dropotron.min.js') }}"></script>
-			<script src="{{ asset('js/jquery.scrollex.min.js') }}"></script>
-			<script src="{{ asset('js/browser.min.js') }}"></script>
-			<script src="{{ asset('js/breakpoints.min.js') }}"></script>
-			<script src="{{ asset('js/util.js') }}"></script>
-			<script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/jquery.min.js') }}"""></script>
+<script src="{{ asset('js/jquery.scrolly.min.js') }}"></script>
+<script src="{{ asset('js/jquery.dropotron.min.js') }}"></script>
+<script src="{{ asset('js/jquery.scrollex.min.js') }}"></script>
+<script src="{{ asset('js/browser.min.js') }}"></script>
+<script src="{{ asset('js/breakpoints.min.js') }}"></script>
+<script src="{{ asset('js/util.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
+<!-- js de la apliacion-->
+<script src="{{ asset('js/Transversal/generales.js') }}"></script>
+<script src="{{ asset('js/MAutonomia/Encuesta.js') }}"></script>
 
 </body>
 </html>
