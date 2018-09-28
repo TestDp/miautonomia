@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Bienvenida</div>
+                <div class="card-header"><h1 style="color: #e86e48;">Bienvenida</h1></br></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Iniciaste sesión!
+                    <h3>Acá podrás crear las encuestas que quieras para MiAutonomía, en el menú de la izquierda puedes ver las opciones que tenemos para ti.</h3>
                 </div>
             </div>
         </div>

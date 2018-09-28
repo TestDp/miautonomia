@@ -48,7 +48,7 @@
                     <ul class="nav" id="side-menu">
                         @if(Auth::user()->buscarRecurso('Autonomia'))
                             <li>
-                                <a href="#ulEmpresa" data-toggle="collapse"><i class="fa fa-table nav_icon"></i>Mi Autonomía<span
+                                <a href="#ulEmpresa" data-toggle="collapse"><i class="fa fa-table nav_icon"></i>MiAutonomía<span
                                             class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level collapse" id="ulEmpresa">
                                     @if(Auth::user()->buscarRecurso('Encuestas'))
