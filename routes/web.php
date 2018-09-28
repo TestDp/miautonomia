@@ -48,6 +48,8 @@ Route::get('/register/verify/{code}', 'MSistema\UsuarioController@verifarCorreo'
 Route::get('vistaCrearEncuesta', 'MAutonomia\EncuestaController@VistaCrearEncuesta')->name('vistaCrearEncuesta');//cargar la vista para crear un proveedor
 Route::post('guardarEncuesta', 'MAutonomia\EncuestaController@GuardarEncuesta')->name('guardarEncuesta');//Guardar la informacion del proveedor
 Route::get('encuestas', 'MAutonomia\EncuestaController@ObtenerEncuestas')->name('encuestas');//Obtiene la lista de encuestas
+Route::get('FormularioEncuesta/{idEncuesta}', ['uses' =>'MAutonomia\EncuestaController@obtenerFormularioEncuesta']);/** Obtiene el formulario de la encuesta*/
+Route::post('registrarEncuesta',['uses' =>'MAutonomia\EncuestaController@registrarEncuesta']);
 
 //CONTROLADOR SEDES
 Route::get('crearSede', 'MEmpresa\SedeController@CrearSede')->name('crearSede');//cargar la vista para crear una sede

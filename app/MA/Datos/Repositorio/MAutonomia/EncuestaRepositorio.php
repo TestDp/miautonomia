@@ -68,4 +68,14 @@ class EncuestaRepositorio
         return true;
 
     }
+
+    public function obtenerEncuesta($idEncuesta)
+    {
+        $encuesta = Encuesta::where('id','=',$idEncuesta)->get()->first();
+        $encuesta->preguntas;
+        $encuesta->preguntas->each(function($preguntas){
+            $preguntas ->respuestas;// se realiza la relacion de la respuestas de la preguntas del evento
+        });
+       return $encuesta ;
+    }
 }

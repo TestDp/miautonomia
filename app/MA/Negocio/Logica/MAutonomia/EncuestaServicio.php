@@ -27,4 +27,9 @@ class EncuestaServicio
     public  function GuardarEncuesta($requestInfoEncuesta){
         return $this->encuestaRepositorio->GuardarEncuesta($requestInfoEncuesta);
     }
+
+    public function obtenerFormularioEncuesta($idEncuesta)
+    {
+        return $this->encuestaRepositorio->obtenerEncuesta($idEncuesta);
+    }
 }

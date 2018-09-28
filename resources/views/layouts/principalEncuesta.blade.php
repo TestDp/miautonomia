@@ -100,6 +100,10 @@
 </div>
 <!--//footer-->
 </div>
+
+
+
+
 <!-- Classie -->
 <script src="{{ asset('js/classie.js') }}"></script>
 <script>

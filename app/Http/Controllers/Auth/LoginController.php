@@ -106,7 +106,7 @@ class LoginController extends Controller
 
         if($user->hasRole('profesor'))
         {
-            return redirect('/principal');
+            return redirect('/encuestas');
         }
 
     }

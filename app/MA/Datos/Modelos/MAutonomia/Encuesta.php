@@ -23,4 +23,7 @@ class Encuesta extends Model
     }
 
 
+    public function preguntas(){
+        return $this->hasMany('MA\Datos\Modelos\Pregunta','Encuesta_id','id');
+    }
 }

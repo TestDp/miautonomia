@@ -72,4 +72,14 @@ class EncuestaController extends Controller
         }else return view('MAutonomia/Encuesta/listaEncuestas');
     }
 
+
+    public function obtenerFormularioEncuesta($idEncuesta)
+    {
+
+        $encuesta = $this->encuestaServicio->obtenerFormularioEncuesta($idEncuesta);
+        $ElementosArray= array('encuesta' => $encuesta);
+        return view('Layouts/PrincipalEncuesta',['ElementosArray' =>$ElementosArray]);
+
+    }
+
 }
