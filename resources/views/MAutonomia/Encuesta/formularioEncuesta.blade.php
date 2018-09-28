@@ -1,13 +1,13 @@
-@extends('layouts.principal')
+@extends('layouts.app')
 
 @section('content')
     <div class="column one">
-        @if(count($ElementosArray["encuesta"]->preguntas) >0)
+        @if(count($encuesta->preguntas) >0)
             <div class="hover_color_wrapper">
                 <h2 style="font-size: 20px; font-family: sans-serif; color:#2297e1;">Responde por favor la siguiente encuesta</h2>
-                @foreach($ElementosArray["encuesta"] ->preguntas as $PreguntasFormulario)
+                @foreach($encuesta->preguntas as $PreguntasFormulario)
                     <fieldset>
-                        <div style="font-weight:700; font-family: sans-serif; padding-top: 2%;" name ="id_pregunta" value = "{{ $PreguntasFormulario->id }}">{{ $PreguntasFormulario->Enunciado }} </div>
+                        <div style="font-weight:700; font-family: sans-serif; padding-top: 2%;" name ="id_pregunta" value = "{{ $PreguntasFormulario->id }}"> ¿ {{ $PreguntasFormulario->Enunciado }} ?</div>
                         @foreach($PreguntasFormulario->Respuestas as $respuestas)
                             <div class="col-md-6" >
                                 <div class="radio">

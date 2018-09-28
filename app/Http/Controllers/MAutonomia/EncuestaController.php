@@ -82,18 +82,15 @@ class EncuestaController extends Controller
         if($request->ajax()){
             $sections = $view->renderSections();
             return Response::json($sections['content']);
-        }else return  view('layouts.principalEncuesta',['encuestas'=>$encuestas]);
+        }else return  view('MAutonomia/Encuesta/listaEncuestasUsuario',['encuestas'=>$encuestas]);
 
     }
 
 
     public function obtenerFormularioEncuesta($idEncuesta)
     {
-
         $encuesta = $this->encuestaServicio->obtenerFormularioEncuesta($idEncuesta);
-        $ElementosArray= array('encuesta' => $encuesta);
-        return view('Layouts/PrincipalEncuesta',['ElementosArray' =>$ElementosArray]);
-
+        return view('MAutonomia/Encuesta/FormularioEncuesta',['encuesta' =>$encuesta]);
     }
 
 }

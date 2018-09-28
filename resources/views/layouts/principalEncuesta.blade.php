@@ -106,7 +106,9 @@
         <br/>
 </div>
 
-
+    <div id="principalPanel">
+        @yield('content')
+    </div>
 
 </div>
 <!--footer-->
