@@ -60,16 +60,30 @@ class EncuestaController extends Controller
     }
 
     //Metodo para obtener toda  la lista de encuestas del usuario
-    public  function ObtenerEncuestas(Request $request){
+    public  function ObtenerEncuestasUsuario(Request $request){
         $urlinfo= $request->getPathInfo();
         $request->user()->AutorizarUrlRecurso($urlinfo);
         $idUsuario = Auth::user()->id;
-        $encuestas = $this->encuestaServicio->ObtenerListaEncuesta($idUsuario);
+        $encuestas = $this->encuestaServicio->ObtenerListaEncuestaUsuario($idUsuario);
         $view = View::make('MAutonomia/Encuesta/listaEncuestas')->with('listEncuesta',$encuestas);
         if($request->ajax()){
             $sections = $view->renderSections();
             return Response::json($sections['content']);
-        }else return view('MAutonomia/Encuesta/listaEncuestas');
+        }else return  view('layouts.principalEncuesta',['encuestas'=>$encuestas]);
+
+    }
+
+    public  function ObtenerEncuestas(Request $request){
+        $urlinfo= $request->getPathInfo();
+        $request->user()->AutorizarUrlRecurso($urlinfo);
+        $idUsuario = Auth::user()->id;
+        $encuestas = $this->encuestaServicio->ObtenerListaEncuesta();
+        $view = View::make('MAutonomia/Encuesta/listaEncuestas')->with('listEncuesta',$encuestas);
+        if($request->ajax()){
+            $sections = $view->renderSections();
+            return Response::json($sections['content']);
+        }else return  view('layouts.principalEncuesta',['encuestas'=>$encuestas]);
+
     }
 
 

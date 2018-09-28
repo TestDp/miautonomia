@@ -46,7 +46,7 @@
 
 <!--left-fixed -navigation-->
     <!-- header-starts -->
-    <div class="sticky-header header-section ">
+    <div style="display:none;" class="sticky-header header-section ">
         <div class="header-left">
             <!--logo -->
             <div class="logo">
@@ -92,6 +92,23 @@
     </div>
 
 
+
+<div class="body">
+        <div class="column one">
+                <div class="hover_color_wrapper">
+                    @foreach($encuestas as $encuesta)
+                        <fieldset>
+                            <button class="button primary" style="font-weight:700; font-family: sans-serif; padding-top: 2%;" name ="id_encuesta" value = "{{ $encuesta->id }}">{{ $encuesta->NombreEncuesta }} {obtenerFormularioEncuesta($idEncuesta)}</button>
+
+                        </fieldset>
+                    @endforeach
+                </div>
+        </div>
+        <br/>
+</div>
+
+
+
 </div>
 <!--footer-->
 <div class="footer">
@@ -100,9 +117,6 @@
 </div>
 <!--//footer-->
 </div>
-
-
-
 
 <!-- Classie -->
 <script src="{{ asset('js/classie.js') }}"></script>

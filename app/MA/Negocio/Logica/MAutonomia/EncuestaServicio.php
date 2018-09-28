@@ -19,9 +19,14 @@ class EncuestaServicio
         $this->encuestaRepositorio = $encuestaRepositorio;
     }
 
-    public  function  ObtenerListaEncuesta($idUsuario)
+    public  function  ObtenerListaEncuestaUsuario($idUsuario)
     {
-        return $this->encuestaRepositorio->ObtenerListaEncuesta($idUsuario);
+        return $this->encuestaRepositorio->ObtenerListaEncuestaUsuario($idUsuario);
+    }
+
+    public  function  ObtenerListaEncuesta()
+    {
+        return $this->encuestaRepositorio->ObtenerListaEncuesta();
     }
 
     public  function GuardarEncuesta($requestInfoEncuesta){

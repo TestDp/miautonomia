@@ -17,8 +17,12 @@ use MA\Datos\Modelos\MAutonomia\Respuesta;
 class EncuestaRepositorio
 {
 
-    public  function  ObtenerListaEncuesta($idUsuario){
+    public  function  ObtenerListaEncuestaUsuario($idUsuario){
         return Encuesta::where('user_id', '=', $idUsuario)->get();
+    }
+
+    public  function  ObtenerListaEncuesta(){
+        return Encuesta::all();
     }
 
     public  function GuardarEncuesta($requestInfoEncuesta){
