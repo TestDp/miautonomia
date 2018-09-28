@@ -13,6 +13,7 @@ use MA\Datos\Modelos\MAutonomia\Encuesta;
 use Illuminate\Support\Facades\DB;
 use MA\Datos\Modelos\MAutonomia\Pregunta;
 use MA\Datos\Modelos\MAutonomia\Respuesta;
+use MA\Datos\Modelos\MAutonomia\RespuestaUsuarioXEncuesta;
 
 class EncuestaRepositorio
 {
@@ -80,6 +81,25 @@ class EncuestaRepositorio
         $encuesta->preguntas->each(function($preguntas){
             $preguntas ->respuestas;// se realiza la relacion de la respuestas de la preguntas del evento
         });
-       return $encuesta ;
+        return $encuesta ;
+    }
+
+
+    public function GuardarRespuestaEncuesta($idUsuario,$idRespuesta)
+    {
+        DB::beginTransaction();
+        try{
+            $respuestaXUsuario = new RespuestaUsuarioXEncuesta();
+            $respuestaXUsuario->user_id = $idUsuario;
+            $respuestaXUsuario->Respuesta_id = $idRespuesta;
+            $respuestaXUsuario->save();
+            DB::commit();
+        }catch (\Exception $e) {
+
+            $error = $e->getMessage();
+            DB::rollback();
+            return  false;
+        }
+        return true;
     }
 }

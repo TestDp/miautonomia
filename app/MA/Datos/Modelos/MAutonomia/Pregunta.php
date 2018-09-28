@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pregunta extends Model
 {
     protected $table = 'Tbl_Preguntas';
-    protected $fillable =['Enunciado','Encuesta_id','Categoria_id','Explicación'];
+    protected $fillable =['Enunciado','Encuesta_id','Categoria_id','Explicacion'];
 
     public function evento(){
         return $this->belongsTo(Encuesta::class,'Encuesta_id');

@@ -37,4 +37,9 @@ class EncuestaServicio
     {
         return $this->encuestaRepositorio->obtenerEncuesta($idEncuesta);
     }
+
+    public function GuardarRespuestaEncuesta($idUsuario,$idRespuesta)
+    {
+        return $this->encuestaRepositorio->GuardarRespuestaEncuesta($idUsuario,$idRespuesta);
+    }
 }

@@ -13,10 +13,53 @@
                         @foreach($PreguntasFormulario->Respuestas as $respuestas)
                             <div class="col-md-6" >
                                 <div class="radio">
-                                    <div style="font-family: sans-serif; line-height: 30px;"><input type="radio" value="{{$respuestas->id}}" id="Respuesta_id" name="Respuesta_id[{{$loop->parent->index}}]" >
+                                    <div style="font-family: sans-serif; line-height: 30px;"><input type="radio" value="{{$respuestas->id}}" id="Respuesta_id" name="Respuesta_id[{{$loop->parent->index}}]" data-toggle="modal" data-target="#modalExplicacionRespuesta{{$respuestas->id}}">
                                         <b>{{$respuestas->Descripcion}}</b>
                                     </div>
                                 </div>
+                                <!-- Modal confirmación elimminar respuesta-->
+                                @if($respuestas->Puntaje >= 0)
+                                <div id="modalExplicacionRespuesta{{$respuestas->id}}" name="modalExplicacionRespuesta" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Gato Feliz</h4>
+                                            </div>
+                                            <div class="modal-body" style="text-align:center; color:black">
+                                                <div class="row">
+                                                    {{ $PreguntasFormulario->Explicacion }}
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-blue ripple trial-button" data-dismiss="modal" onclick="EliminarRespuesta(this)">Eliminar</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @else
+                                    <div id="modalExplicacionRespuesta{{$respuestas->id}}" name="modalExplicacionRespuesta" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Gato triste</h4>
+                                                </div>
+                                                <div class="modal-body" style="text-align:center; color:black">
+                                                    <div class="row">
+                                                        {{ $PreguntasFormulario->Explicacion }}
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-blue ripple trial-button" data-dismiss="modal" onclick="EliminarRespuesta(this)">Eliminar</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                                <!-- Modal confirmación elimminar respuesta-->
                             </div>
                         @endforeach
                         <label for="Respuesta_id[{{$loop->index}}]" class="error" style="display:none;">Please choose one.</label>
@@ -28,8 +71,8 @@
         @endif
     <div class="row">
         <div class="col-md-12">
-            <button type="submit" onclick="generarQRCode()" class="btn btn-blue ripple trial-button">
-                Enviar
+            <button type="submit" onclick="" class="btn btn-blue ripple trial-button">
+                Finalizar
             </button>
         </div>
     </div>
