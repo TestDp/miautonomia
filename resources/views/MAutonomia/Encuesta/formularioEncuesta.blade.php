@@ -80,7 +80,7 @@
     @endif
     <div class="row">
         <div class="col-md-12">
-            <button type="submit" onclick="" class="btn btn-blue ripple trial-button">
+            <button type="submit" onclick="" class="btn btn-primary">
                 Finalizar
             </button>
         </div>
