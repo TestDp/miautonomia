@@ -60,7 +60,7 @@
                                 <!-- Modal confirmación elimminar respuesta-->
                                 </div>
                             @endforeach
-                            <label for="Respuesta_id[{{$loop->index}}]" class="error" style="display:none;">Please choose one.</label>
+                            <label id="respuestaSinResponder"></label>
                         </fieldset>
                     @endforeach
                 </header>

@@ -203,6 +203,8 @@ function guardarRespuestaUsuario(element,idrespuesta) {
                 $(element).closest('fieldset[name=RespuestasUsuario]').find('input').each(function (j,respuestaUsuario) {
                     $(respuestaUsuario).attr('disabled','disabled');
                 });
+                $(element).removeAttr('disabled');
+                $(element).removeAttr('onclick');
             }
         },
         error: function (data) {
@@ -216,3 +218,10 @@ function guardarRespuestaUsuario(element,idrespuesta) {
     });
 }
 
+
+function validarRespuetas() {
+    var respuesta = true;
+    $('#banner').find('radio').each(function (j,respuestaUsuario) {
+        
+    });
+}
