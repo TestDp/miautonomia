@@ -142,6 +142,7 @@ function validarFormularioCrearEncuesta(){
 
 }
 
+//función para validar que el textarea tenga contenido
 function validarTextArea() {
     var respuesta = true;
     var valtextArea = CKEDITOR.instances['DesEncuesta'].getData();
@@ -155,11 +156,11 @@ function validarTextArea() {
     return respuesta;
 }
 
-//Metodo para guarda la informacion de la categoria y retorna la vista con todos las categorias
+//función para guarda la informacion de la categoria y retorna la vista con todos las categorias
 function GuardarEncuesta() {
     PopupPosition();
     var form = $("#crearEncuesta");
-    var token = $("#_token").val()
+    var token = $("#_token").val();
     $.ajax({
         type: 'POST',
         url: urlBase +'guardarEncuesta',
@@ -189,8 +190,6 @@ function GuardarEncuesta() {
     });
 }
 
-
-
 //función para guardar la respuesta del usuario
 function guardarRespuestaUsuario(element,idrespuesta) {
     $.ajax({
@@ -218,7 +217,7 @@ function guardarRespuestaUsuario(element,idrespuesta) {
     });
 }
 
-
+//función para validar que todas las preguntas sean respuestas
 function validarRespuetas() {
     var respuesta = true;
     $('#seccionPreguntas').find('fieldset[name=RespuestasUsuario]').each(function (j,pregunta) {
@@ -252,4 +251,23 @@ function validarRespuetas() {
             button: "OK",
         });
     }
+}
+
+function verEstadisticas(idEncuesta) {
+    var token = $("#_token").val();
+    PopupPosition();
+    $.ajax({
+        type: 'POST',
+        url: urlBase +'estadisticas',
+        dataType: 'json',
+        headers: {'X-CSRF-TOKEN': token},
+        data:{idEncuesta:idEncuesta},
+        success: function (data) {
+            OcultarPopupposition();
+            $('#principalPanel').empty().append($(data));
+        },
+        error: function (data) {
+            OcultarPopupposition();
+        }
+    });
 }

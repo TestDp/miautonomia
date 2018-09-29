@@ -56,6 +56,7 @@ Route::get('encuestas', 'MAutonomia\EncuestaController@ObtenerEncuestas')->name(
 Route::get('FormularioEncuesta/{idEncuesta}', 'MAutonomia\EncuestaController@obtenerFormularioEncuesta');// Obtiene el formulario de la encuesta
 Route::post('registrarEncuesta',['uses' =>'MAutonomia\EncuestaController@registrarEncuesta']);
 Route::get('guardarRespuesta/{idrespuesta}', 'MAutonomia\EncuestaController@GuardarRespuestaEncuesta');
+Route::post('estadisticas', 'MAutonomia\EncuestaController@obtenerEstadisticasEncuesta')->name('estadisticas');
 
 //CONTROLADOR SEDES
 Route::get('crearSede', 'MEmpresa\SedeController@CrearSede')->name('crearSede');//cargar la vista para crear una sede

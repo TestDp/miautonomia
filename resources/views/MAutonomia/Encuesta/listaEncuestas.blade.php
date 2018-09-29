@@ -14,12 +14,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
+                            <input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
                             <table style="border-collapse: collapse !important; border-spacing: 0 !important; width: 100% !important;" class="table table-bordered" id="tablaEncuestas">
                                 <thead>
                                 <tr>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Descripción</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Estadísticas</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -27,7 +28,9 @@
                                     <tr>
                                         <td >{{$encuesta->NombreEncuesta}}</td>
                                         <td>{!!$encuesta->Descripcion!!}</td>
-                                        <td></td>
+                                        <td>
+                                            <a class="btn btn-blue ripple trial-button" onclick="verEstadisticas({{$encuesta->id}})">ver</a>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

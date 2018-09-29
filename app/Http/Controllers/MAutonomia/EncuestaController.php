@@ -99,5 +99,15 @@ class EncuestaController extends Controller
         return response()->json($respuesta);
     }
 
+    public  function obtenerEstadisticasEncuesta(Request $request){
+        $urlinfo= $request->getPathInfo();
+       // $request->user()->AutorizarUrlRecurso($urlinfo);
+        $usuarioRespuestas = $this->encuestaServicio->obtenerEstadisticasEncuesta($request->idEncuesta);
+        $view = View::make('MAutonomia/Encuesta/estadisticas')->with('usuariosRespuesta',$usuarioRespuestas);
+        if($request->ajax()){
+            $sections = $view->renderSections();
+            return Response::json($sections['content']);
+        }else return  view('MAutonomia/Encuesta/estadisticas',['encuestas'=>$usuarioRespuestas]);
 
+    }
 }
