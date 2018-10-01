@@ -102,12 +102,24 @@ class EncuestaController extends Controller
     public  function obtenerEstadisticasEncuesta(Request $request){
         $urlinfo= $request->getPathInfo();
        // $request->user()->AutorizarUrlRecurso($urlinfo);
-        $usuarioRespuestas = $this->encuestaServicio->obtenerEstadisticasEncuesta($request->idEncuesta);
+        $usuarioRespuestas = $this->encuestaServicio->obtenerEstadisticasEncuesta($request->idEncuesta,$request->idUsuario);
         $view = View::make('MAutonomia/Encuesta/estadisticas')->with('usuariosRespuesta',$usuarioRespuestas);
         if($request->ajax()){
             $sections = $view->renderSections();
-            return Response::json($sections['content']);
+            return Response::json($sections['contentRespuestasUsuarios']);
         }else return  view('MAutonomia/Encuesta/estadisticas',['encuestas'=>$usuarioRespuestas]);
+
+    }
+
+    public  function obtenerUsuariosEncuestados(Request $request){
+        $urlinfo= $request->getPathInfo();
+        // $request->user()->AutorizarUrlRecurso($urlinfo);
+        $usuarioEncuestados = $this->encuestaServicio->obtenerUsuariosEncuestados($request->idEncuesta);
+        $view = View::make('MAutonomia/Encuesta/listaUsuariosEncuestados',array('usuariosEncuestados'=>$usuarioEncuestados,'idEncuesta' =>$request->idEncuesta));
+        if($request->ajax()){
+            $sections = $view->renderSections();
+            return Response::json($sections['content']);
+        }else return  view('MAutonomia/Encuesta/listaUsuariosEncuestados',['usuariosEncuestados'=>$usuarioEncuestados,'idEncuesta' =>$request->idEncuesta]);
 
     }
 }

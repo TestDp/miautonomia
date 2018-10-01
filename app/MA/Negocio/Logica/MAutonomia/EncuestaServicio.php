@@ -43,8 +43,13 @@ class EncuestaServicio
         return $this->encuestaRepositorio->GuardarRespuestaEncuesta($idUsuario,$idRespuesta);
     }
 
-    public  function obtenerEstadisticasEncuesta($idEncuesta)
+    public  function obtenerEstadisticasEncuesta($idEncuesta,$idUsuario)
     {
-        return $this->encuestaRepositorio->obtenerEstadisticasEncuesta($idEncuesta);
+        return $this->encuestaRepositorio->obtenerEstadisticasEncuesta($idEncuesta,$idUsuario);
+    }
+
+    public  function obtenerUsuariosEncuestados($idEncuesta)
+    {
+        return $this->encuestaRepositorio->obtenerUsuariosEncuestados($idEncuesta);
     }
 }

@@ -103,17 +103,8 @@ class EncuestaRepositorio
         return true;
     }
 
-    public  function obtenerEstadisticasEncuesta($idEncuesta)
+    public  function obtenerEstadisticasEncuesta($idEncuesta,$idUsuario)
     {
-        //$users = DB::table('Tbl_Respuestas_UsuariosXEncuestas')
-        //->join('Tbl_Respuestas','Tbl_Respuestas.id','=','Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
-        //->join('Tbl_Preguntas','Tbl_Preguntas.id','=','Tbl_Respuestas.Pregunta_id')
-        //->join('Tbl_Encuestas','Tbl_Encuestas.id','=','Tbl_Preguntas.Encuesta_id')
-        //->join('users','users.id','=','Tbl_Respuestas_UsuariosXEncuestas.user_id')
-        //->select('users.*','Tbl_Preguntas.Enunciado','Tbl_Respuestas.Descripcion','Tbl_Respuestas.Puntaje')
-        //->where('Tbl_Encuestas.id','=',$idEncuesta)
-        //->get();
-        //return $users;
         $users = DB::table('users')
             ->join('Tbl_Respuestas_UsuariosXEncuestas', 'Tbl_Respuestas_UsuariosXEncuestas.user_id', '=', 'users.id')
             ->join('Tbl_Respuestas','Tbl_Respuestas.id','=','Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
@@ -121,6 +112,22 @@ class EncuestaRepositorio
             ->join('Tbl_Encuestas', 'Tbl_Encuestas.id', '=', 'Tbl_Preguntas.Encuesta_id')
             ->select('users.*','Tbl_Preguntas.Enunciado','Tbl_Respuestas.Descripcion', 'Tbl_Respuestas.Puntaje')
             ->where('Tbl_Encuestas.id', '=', $idEncuesta)
+            ->where('Tbl_Respuestas_UsuariosXEncuestas.user_id','=',$idUsuario)
+            ->get();
+        return $users;
+    }
+
+    //retornar a lista de los usuarios que respondieron la enceusta
+    public  function obtenerUsuariosEncuestados($idEncuesta)
+    {
+        $users = DB::table('users')
+            ->join('Tbl_Respuestas_UsuariosXEncuestas', 'Tbl_Respuestas_UsuariosXEncuestas.user_id', '=', 'users.id')
+            ->join('Tbl_Respuestas','Tbl_Respuestas.id','=','Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
+            ->join('Tbl_Preguntas','Tbl_Preguntas.id','=','Tbl_Respuestas.Pregunta_id')
+            ->join('Tbl_Encuestas', 'Tbl_Encuestas.id', '=', 'Tbl_Preguntas.Encuesta_id')
+            ->select('users.*')
+            ->where('Tbl_Encuestas.id', '=', $idEncuesta)
+            ->distinct()
             ->get();
         return $users;
     }

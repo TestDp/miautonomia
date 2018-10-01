@@ -253,12 +253,31 @@ function validarRespuetas() {
     }
 }
 
-function verEstadisticas(idEncuesta) {
+function verEstadisticas(idEncuesta,idUsuario) {
     var token = $("#_token").val();
     PopupPosition();
     $.ajax({
         type: 'POST',
         url: urlBase +'estadisticas',
+        dataType: 'json',
+        headers: {'X-CSRF-TOKEN': token},
+        data:{idEncuesta:idEncuesta,idUsuario:idUsuario},
+        success: function (data) {
+            OcultarPopupposition();
+            $('#panelRespuestas').empty().append($(data));
+        },
+        error: function (data) {
+            OcultarPopupposition();
+        }
+    });
+}
+
+function verUsuariosEncuestados(idEncuesta) {
+    var token = $("#_token").val();
+    PopupPosition();
+    $.ajax({
+        type: 'POST',
+        url: urlBase +'usuariosEncuestados',
         dataType: 'json',
         headers: {'X-CSRF-TOKEN': token},
         data:{idEncuesta:idEncuesta},
