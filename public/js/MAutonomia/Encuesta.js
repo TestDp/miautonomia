@@ -253,7 +253,7 @@ function validarRespuetas() {
     }
 }
 
-function verEstadisticas(idEncuesta,idUsuario) {
+function verEstadisticas(element,idEncuesta,idUsuario) {
     var token = $("#_token").val();
     PopupPosition();
     $.ajax({
@@ -265,11 +265,20 @@ function verEstadisticas(idEncuesta,idUsuario) {
         success: function (data) {
             OcultarPopupposition();
             $('#panelRespuestas').empty().append($(data));
+            pintarFilaSelecciona(element)
         },
         error: function (data) {
             OcultarPopupposition();
         }
     });
+}
+
+function pintarFilaSelecciona(element)
+{
+    $(element).closest('tbody').find('tr').each(function (j,tr) {
+        $(tr).removeAttr('style');
+    });
+    $(element).closest('tr').attr("style","background: #dff0d8");
 }
 
 function verUsuariosEncuestados(idEncuesta) {

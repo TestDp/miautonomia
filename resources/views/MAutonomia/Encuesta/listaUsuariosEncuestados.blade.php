@@ -24,7 +24,7 @@
                                     <tr>
                                         <td >{{$usuario->name}} {{$usuario->last_name}}</td>
                                         <td>{{$usuario->username}}</td>
-                                        <td><a class="btn btn-blue ripple trial-button" onclick="verEstadisticas({{$idEncuesta}},{{$usuario->id}})">ver</a></td>
+                                        <td><a class="btn btn-blue ripple trial-button" onclick="verEstadisticas(this,{{$idEncuesta}},{{$usuario->id}})">ver</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>
