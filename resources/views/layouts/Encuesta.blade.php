@@ -73,13 +73,6 @@
     </div>
 
 
-    <!-- Footer -->
-    <footer id="footer">
-        <ul class="copyright">
-            <li>Desarrollado por <a href="https://dpsoluciones.co">DPSoluciones</a></li>
-        </ul>
-    </footer>
-
 </div>
 
 

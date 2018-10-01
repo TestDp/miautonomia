@@ -3647,7 +3647,10 @@ input, select, textarea {
 	#navPanel, #titleBar {
 		display: none;
 	}
-
+	
+	@media screen and (max-width: 736px){
+#seccionPreguntas{padding-top:20%;}
+	}
 	@media screen and (max-width: 736px) {
 
 		/* Basic */
@@ -3786,7 +3789,7 @@ input, select, textarea {
 				top: 0;
 				width: 100%;
 				z-index: 10001;
-				background: #272833;
+				background: transparent;
 				box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
 			}
 
@@ -3813,6 +3816,7 @@ input, select, textarea {
 					width: 90px;
 					outline: 0;
 					border: 0;
+					display: none;
 				}
 
 					#titleBar .toggle:before {
@@ -4002,5 +4006,6 @@ input, select, textarea {
 						margin: 0;
 						padding: 0;
 					}
+					
 
 	}

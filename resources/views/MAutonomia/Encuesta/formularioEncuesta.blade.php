@@ -1,4 +1,4 @@
-@extends('layouts.principal')
+@extends('layouts.Encuesta')
 
 @section('content')
 
@@ -25,41 +25,63 @@
                                     <!-- Modal confirmación elimminar respuesta-->
                                     @if($respuestas->Puntaje >= 0)
                                         <div id="modalExplicacionRespuesta{{$respuestas->id}}" name="modalExplicacionRespuesta" class="modal fade" role="dialog">
-                                            <div class="modal-dialog">
-                                                <!-- Modal content-->
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title">Gato Feliz</h4>
-                                                    </div>
-                                                    <div class="modal-body" style="text-align:center; color:black">
-                                                        <div class="row">
-                                                            {{ $PreguntasFormulario->Explicacion }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">ACEPTAR</button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                           <div class="modal-dialog">
+													<!-- Modal content-->
+													<div class="modal-content">
+														<div class="row">
+															<div class="row">
+																<div class="col-md-6">
+																	<div class="modal-header">
+																		<img class="media-object" style="width:100%; display:block; margin:auto;" src="{{ asset('images/gato-feliz.gif') }}"></img>
+																	</div>
+																</div>	
+														<div class="col-md-6">				
+																<div class="modal-body" style="text-align:center; color:black">
+																	<div style="font-size: 12px; color: #000; font-family: sans-serif; text-align: justify;" class="row">
+																		{{ $PreguntasFormulario->Explicacion }}
+																	</div>
+																</div>
+														</div>
+														</div>
+														<div class="col-md-12">
+														<div class="modal-footer">
+															<button style="display:block; margin:auto;" type="button" class="btn btn-primary" data-dismiss="modal">ACEPTAR</button>
+														</div>
+														</div>
+													
+													</div>
+												</div>
+											</div>
                                         </div>
                                     @else
                                         <div id="modalExplicacionRespuesta{{$respuestas->id}}" name="modalExplicacionRespuesta" class="modal fade" role="dialog">
                                             <div class="modal-dialog">
-                                                <!-- Modal content-->
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title">Gato triste</h4>
-                                                    </div>
-                                                    <div class="modal-body" style="text-align:center; color:black">
-                                                        <div class="row">
-                                                            {{ $PreguntasFormulario->Explicacion }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">ACEPTAR</button>
-                                                    </div>
-                                                </div>
-                                            </div>
+													<!-- Modal content-->
+													<div class="modal-content">
+														<div class="row">
+															<div class="row">
+																<div class="col-md-6">
+																	<div class="modal-header">
+																		<img class="media-object" style="width:100%; display:block; margin:auto;" src="{{ asset('images/gato-triste.gif') }}"></img>
+																	</div>
+																</div>	
+														<div class="col-md-6">				
+																<div class="modal-body" style="text-align:center; color:black">
+																	<div style="font-size: 12px; color: #000; font-family: sans-serif; text-align: justify;" class="row">
+																		{{ $PreguntasFormulario->Explicacion }}
+																	</div>
+																</div>
+														</div>
+														</div>
+														<div class="col-md-12">
+														<div class="modal-footer">
+															<button style="display:block; margin:auto;" type="button" class="btn btn-primary" data-dismiss="modal">ACEPTAR</button>
+														</div>
+														</div>
+													
+													</div>
+												</div>
+											</div>
                                         </div>
                                 @endif
                                 <!-- Modal confirmación elimminar respuesta-->
@@ -80,7 +102,7 @@
     @endif
     <div class="row">
         <div class="col-md-12">
-            <button  onclick="validarRespuetas()" class="btn btn-blue ripple trial-button">
+            <button  onclick="validarRespuetas()" class="btn btn-primary">
                 Finalizar
             </button>
         </div>
