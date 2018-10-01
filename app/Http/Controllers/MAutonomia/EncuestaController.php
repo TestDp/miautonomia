@@ -89,7 +89,7 @@ class EncuestaController extends Controller
     public function obtenerFormularioEncuesta($idEncuesta)
     {
         $encuesta = $this->encuestaServicio->obtenerFormularioEncuesta($idEncuesta);
-        return view('MAutonomia/Encuesta/FormularioEncuesta',['encuesta' =>$encuesta]);
+        return view('MAutonomia/Encuesta/formularioEncuesta',['encuesta' =>$encuesta]);
     }
 
     public function GuardarRespuestaEncuesta($idRespuesta)
@@ -101,7 +101,7 @@ class EncuestaController extends Controller
 
     public  function obtenerEstadisticasEncuesta(Request $request){
         $urlinfo= $request->getPathInfo();
-       // $request->user()->AutorizarUrlRecurso($urlinfo);
+        $request->user()->AutorizarUrlRecurso($urlinfo);
         $usuarioRespuestas = $this->encuestaServicio->obtenerEstadisticasEncuesta($request->idEncuesta,$request->idUsuario);
         $view = View::make('MAutonomia/Encuesta/estadisticas')->with('usuariosRespuesta',$usuarioRespuestas);
         if($request->ajax()){
@@ -113,7 +113,7 @@ class EncuestaController extends Controller
 
     public  function obtenerUsuariosEncuestados(Request $request){
         $urlinfo= $request->getPathInfo();
-        // $request->user()->AutorizarUrlRecurso($urlinfo);
+        $request->user()->AutorizarUrlRecurso($urlinfo);
         $usuarioEncuestados = $this->encuestaServicio->obtenerUsuariosEncuestados($request->idEncuesta);
         $view = View::make('MAutonomia/Encuesta/listaUsuariosEncuestados',array('usuariosEncuestados'=>$usuarioEncuestados,'idEncuesta' =>$request->idEncuesta));
         if($request->ajax()){

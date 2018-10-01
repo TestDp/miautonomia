@@ -41,7 +41,7 @@
                                                     @foreach($listRecursos as $recurso)
                                                         @if($recurso->RecursoSistemaPadre_id == $recursoPadre->id)
                                                             <li>
-                                                                <input name="idRecurso[]" type="checkbox" value="{{$recurso->id}}" onclick="checkRecursoPadre(this)">{{$recurso->Nombre}}
+                                                                <input name="idRecurso[]" type="checkbox" value="{{$recurso->id}}" onclick="checkRecursoPadre(this)">{{$recurso->Descripcion}}
                                                             </li>
                                                         @endif
                                                     @endforeach

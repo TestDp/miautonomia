@@ -94,7 +94,7 @@
             <!--toggle button end-->
             <!--logo -->
             <div class="logo">
-                <a href="{{ url('/') }}"><img class="media-object" style="width:40%;" src="{{ asset('images/Logo.png') }}"></img></a>
+                <img class="media-object" style="width:40%;" src="{{ asset('images/Logo.png') }}"></img>
             </div>
             <!--//logo-->
 

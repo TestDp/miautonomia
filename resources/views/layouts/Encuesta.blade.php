@@ -51,7 +51,7 @@
     <!--left-fixed -navigation-->
     <!-- header-starts -->
     <header id="header">
-        <a href="{{ url('/') }}"><h1 id="logo"><img class="image" src="{{ asset('images/Logo.png') }}"></img></h1></a>
+        <a href="{{ url('/encuestas') }}"><h1 id="logo"><img class="image" src="{{ asset('images/Logo.png') }}"></img></h1></a>
         <nav id="nav">
             <ul>
                 <li class="dropdown profile_details_drop">

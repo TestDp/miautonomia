@@ -66,6 +66,9 @@ class UsuarioController extends  Controller
             $user = new User($request->all());
             $user->password = Hash::make($request->password);
             $user->CorreoConfirmado = 1;
+            $user->Sexo = "NA";
+            $user->Edad = 0;
+            $user->NivelEducativo = "NA";
             $user->save();
             foreach ($request->Roles_id as $rolid){
                 $rolPorUsuario = new Rol_Por_Usuario();
