@@ -57,7 +57,9 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
-        return view('auth.RespuestaRegistro',['respuesta'=>true]);
+        $this->guard()->login($user);
+        //return view('auth.RespuestaRegistro',['respuesta'=>true]);
+        return redirect('/encuestas');
     }
 
     /**
@@ -90,7 +92,7 @@ class RegisterController extends Controller
     {
         DB::beginTransaction();
         try {
-            $data['CodigoConfirmacion'] = str_random(25);
+          //  $data['CodigoConfirmacion'] = str_random(25);
             $user = User::create([
                 'name' => $data['name'],
                 'last_name' => $data['last_name'],
@@ -98,7 +100,8 @@ class RegisterController extends Controller
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'Sede_id' =>2,
-                'CodigoConfirmacion' => $data['CodigoConfirmacion'],
+                'CorreoConfirmado'=>1,
+                'CodigoConfirmacion' => null,
                 'Edad' => $data['Edad'],
                 'NivelEducativo' => $data['NivelEducativo'],
                 'Sexo' => $data['Sexo']
@@ -107,9 +110,9 @@ class RegisterController extends Controller
                 ->roles()
                 ->attach(Rol::where('Nombre', 'profesor')->first());
             DB::commit();
-            Mail::send('Correos.ConfirmarCorreo', $data, function($message) use ($data) {
-                $message->to($data['email'], $data['name'])->subject('Por favor confirma tu correo');
-            });
+            // Mail::send('Correos.ConfirmarCorreo', $data, function($message) use ($data) {
+            //$message->to($data['email'], $data['name'])->subject('Por favor confirma tu correo');
+            //});
             return $user;
         } catch (\Exception $e) {
             $error = $e->getMessage();

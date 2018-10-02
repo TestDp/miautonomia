@@ -23,8 +23,13 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $urlinfo= $request->getPathInfo();
+        $urlinfo = $request->getPathInfo();
         $request->user()->AutorizarUrlRecurso($urlinfo);
-        return view('home');
+        if( $request->user()->hasRole('admin')){
+            return view('home');
+        }
+        if( $request->user()->hasRole('profesor')){
+            return redirect('/encuestas');
+        }
     }
 }
