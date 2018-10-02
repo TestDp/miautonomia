@@ -123,9 +123,8 @@ input, select, textarea {
 		}
 
 	strong, b {
-		color: #ffffff;
-		font-weight: 300;
-		background: #e86e48;
+		color: #000000;
+		font-weight: 700;
 		padding: 5%;
 	}
 
@@ -2216,7 +2215,7 @@ input, select, textarea {
 		font-size: 15px;
 		font-weight: 300;
 		margin: 0 0 1em 0;
-		background: #e86e48;
+		background: transparent;
 		padding: 5%;
 	}
 
@@ -4009,3 +4008,21 @@ input, select, textarea {
 					
 
 	}
+	
+	/*CUSTOM*/
+	
+	.plumas
+{
+    position:relative;   
+    margin-left:5px;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+	
+	
+.plumas:hover {
+		transform: rotateY( 180deg );
+    -webkit-transform: rotateY(180deg);
+}

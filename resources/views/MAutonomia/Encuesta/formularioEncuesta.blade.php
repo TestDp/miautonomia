@@ -12,15 +12,15 @@
 					<div class="row">
 								<div class="col-12-medium">
                         <fieldset name="RespuestasUsuario">
-                            <div style="font-weight:700; color: #8d562f;" name ="id_pregunta" value = "{{ $PreguntasFormulario->id }}"> ¿ {{ $PreguntasFormulario->Enunciado }} ?
+                            <div style="font-weight: 700; color: #ffffff; background: #e86e48; padding: 5%; border-radius: 50px;" name ="id_pregunta" value = "{{ $PreguntasFormulario->id }}"> ¿ {{ $PreguntasFormulario->Enunciado }} ?
 							</div>
 							@foreach($PreguntasFormulario->Respuestas as $respuestas)
                                 <div class="col-sm-2 col-sm-offset-1" >
 
                                         <label><input type="radio" onclick="guardarRespuestaUsuario(this,{{$respuestas->id}})" id="Respuesta_id" name="Respuesta_id[{{$loop->parent->index}}]" data-toggle="modal" data-target="#modalExplicacionRespuesta{{$respuestas->id}}">
                                             <b>{{$respuestas->Descripcion}}</b>
+											<img class="plumas" style="width: 40%; display:block; margin:auto;" src="{{ asset('images/morada.png') }}"></img>
                                         </label>
-																	<img class="media-object" style="width: 40%; display:block; margin:auto;" src="{{ asset('images/morada.png') }}"></img>
                                     <!-- Modal confirmación elimminar respuesta-->
                                     @if($respuestas->Puntaje >= 0)
                                         <div id="modalExplicacionRespuesta{{$respuestas->id}}" name="modalExplicacionRespuesta" class="modal fade" role="dialog">
