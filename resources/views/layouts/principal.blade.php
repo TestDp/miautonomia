@@ -109,8 +109,7 @@
                             <div class="profile_img">
                                 <span class="prfil-img"><img src="images/a.png" alt=""> </span>
                                 <div class="user-name">
-                                    <p>{{ Auth::user()->name }} </p>
-                                    <span>Bienvenida</span>
+                                    <p>Bienvenid@ {{ Auth::user()->name }} </p>
                                 </div>
                                 <i class="fa fa-angle-down lnr"></i>
                                 <i class="fa fa-angle-up lnr"></i>

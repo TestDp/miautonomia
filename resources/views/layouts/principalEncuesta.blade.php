@@ -89,8 +89,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                             <div class="profile_img">
                                 <div class="user-name">
-                                    <p>{{ Auth::user()->name }} </p>
-                                    <p>Bienvenid@</p>
+                                    <p>Bienvenid@ {{ Auth::user()->name }} </p>
                                 </div>
                                 <i class="fa fa-angle-down lnr"></i>
                                 <i class="fa fa-angle-up lnr"></i>

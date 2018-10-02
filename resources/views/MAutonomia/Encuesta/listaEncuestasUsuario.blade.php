@@ -18,7 +18,8 @@
 										<img class="media-object" style="width:100%;" src="{{ asset('images/hojas-amarillas.png') }}"></img>
 											
 												<fieldset>
-													<a href="{{url('FormularioEncuesta', ['idEncuesta' => $encuesta->id ])}}">{{ $encuesta->NombreEncuesta }}</a>
+													<a href="{{url('FormularioEncuesta', ['idEncuesta' => $encuesta->id ])}}">{{ $encuesta->NombreEncuesta }}</a></br>
+													<a class="button primary" href="{{url('FormularioEncuesta', ['idEncuesta' => $encuesta->id ])}}">PARTICIPA AHORA - CLICK AQUÍ</a>
 												</fieldset>
 											
 										</div>
