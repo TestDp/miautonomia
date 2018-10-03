@@ -12,6 +12,11 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+	
+	<!-- To include only some csshake animations use this syntax -->
+<link rel="stylesheet" type="text/css" href="csshake-slow.min.css">
+<!-- or from surge.sh -->
+<link rel="stylesheet" type="text/css" href="http://csshake.surge.sh/csshake-slow.min.css">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Bootstrap Core CSS -->

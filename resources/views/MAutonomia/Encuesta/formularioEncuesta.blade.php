@@ -20,21 +20,21 @@
 												<label><input type="radio" onclick="guardarRespuestaUsuario(this,{{$respuestas->id}})" id="Respuesta_id" name="Respuesta_id[{{$loop->parent->index}}]" data-toggle="modal" data-target="#modalExplicacionRespuesta{{$respuestas->id}}">
 													<b>{{$respuestas->Descripcion}}</b>
 													@if($loop->index == 0)
-														<img class="plumas" style="width: 40%; display:block; margin:auto;" src="{{ asset('images/morada.png') }}">amarillo</img>
+														<img class="plumas" style="width: 40%; display:block; margin:auto;" src="{{ asset('images/verde.png') }}"></img>
 													@else
 														@if($loop->index == 1)
-															<img class="plumas" style="width: 40%; display:block; margin:auto;" src="{{ asset('images/morada.png') }}">azul</img>
+															<img class="plumas" style="width: 40%; display:block; margin:auto;" src="{{ asset('images/naranja.png') }}"></img>
 														@else
 															@if($loop->index == 2)
-																<img class="plumas" style="width: 40%; display:block; margin:auto;" src="{{ asset('images/morada.png') }}">rojo</img>
+																<img class="plumas" style="width: 40%; display:block; margin:auto;" src="{{ asset('images/amarilla.png') }}"></img>
 															@else
 																@if($loop->index == 3)
-																	<img class="plumas" style="width: 40%; display:block; margin:auto;" src="{{ asset('images/morada.png') }}">naranja</img>
+																	<img class="plumas" style="width: 40%; display:block; margin:auto;" src="{{ asset('images/morada.png') }}"></img>
 																@else
 																	@if($loop->index == 4)
-																		<img class="plumas" style="width: 40%; display:block; margin:auto;" src="{{ asset('images/morada.png') }}">verde</img>
+																		<img class="plumas" style="width: 40%; display:block; margin:auto;" src="{{ asset('images/azul.png') }}"></img>
 																	@else
-																		<img class="plumas" style="width: 40%; display:block; margin:auto;" src="{{ asset('images/morada.png') }}">cafe</img>
+																		<img class="plumas" style="width: 40%; display:block; margin:auto;" src="{{ asset('images/verde.png') }}"></img>
 																	@endif
 																@endif
 															@endif
@@ -52,6 +52,7 @@
 																		<div class="col-md-6">
 																			<div class="modal-header">
 																				<img class="media-object" style="width:100%; display:block; margin:auto;" src="{{ asset('images/gato-feliz.gif') }}"></img>
+																				<img class="ball" style="display:block; margin:auto;" src="{{ asset('images/pelota.png') }}"></img>
 																			</div>
 																		</div>
 																		<div class="col-md-6">
@@ -81,6 +82,7 @@
 																	<div class="row">
 																		<div class="col-md-6">
 																			<div class="modal-header">
+																			<img class="shake-slow shake-constant shake-constant--hover" style="position:absolute; left:20%; top:15%; width:50%; display:block; margin:auto;" src="{{ asset('images/gafas.png') }}"></img>
 																				<img class="media-object" style="width:100%; display:block; margin:auto;" src="{{ asset('images/gato-triste.gif') }}"></img>
 																			</div>
 																		</div>
