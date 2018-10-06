@@ -245,14 +245,15 @@ function validarRespuetas() {
         }).then((value) => {
             window.location.href = '../encuestas';
         });
-    }else{
+    }
+    /**else{
         swal({
             title: "Faltan preguntas por responder!",
             text: "se deben responder todas la preguntas para finalizar!",
             icon: "error",
             button: "OK",
         });
-    }
+    }*/
 }
 
 function verEstadisticas(element,idEncuesta,idUsuario) {

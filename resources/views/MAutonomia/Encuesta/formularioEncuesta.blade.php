@@ -100,7 +100,7 @@
 																		</div>
 																		<div class="col-md-12">
 																			<div class="modal-footer">
-																				<button style="display:block; margin:auto;" type="button" class="btn btn-primary" data-dismiss="modal">ACEPTAR</button>
+																				<button style="display:block; margin:auto;" type="button" class="btn btn-primary" data-dismiss="modal" onclick="validarRespuetas()">ACEPTAR</button>
 																			</div>
 																		</div>
 
@@ -131,7 +131,7 @@
 																		</div>
 																		<div class="col-md-12">
 																			<div class="modal-footer">
-																				<button style="display:block; margin:auto;" type="button" class="btn btn-primary" data-dismiss="modal">ACEPTAR</button>
+																				<button style="display:block; margin:auto;" type="button" class="btn btn-primary" data-dismiss="modal" onclick="validarRespuetas()">ACEPTAR</button>
 																			</div>
 																		</div>
 
@@ -166,12 +166,12 @@
 			</div>
 		</section>
 	@endif
-	<div class="row">
+	<!--<div class="row">
 		<div class="col-md-12">
 			<button  onclick="validarRespuetas()" class="btn btn-primary">
 				Finalizar
 			</button>
 		</div>
-	</div>
+	</div>-->
 
 @endsection
