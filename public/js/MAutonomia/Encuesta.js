@@ -220,10 +220,12 @@ function guardarRespuestaUsuario(element,idrespuesta) {
 //función para validar que todas las preguntas sean respuestas
 function validarRespuetas() {
     var respuesta = true;
+    var puntajeTotal=0;
     $('#seccionPreguntas').find('fieldset[name=RespuestasUsuario]').each(function (j,pregunta) {
         var respuestaPregunta = true;
         $(pregunta).find('input[type=radio]').each(function (j,respuestaUsuario) {
             if( $(respuestaUsuario).prop( "checked" )){
+                puntajeTotal = puntajeTotal + parseInt($(respuestaUsuario).data('num'));
                 respuestaPregunta = false;
             }
         });
@@ -236,8 +238,8 @@ function validarRespuetas() {
     });
     if(respuesta){
         swal({
-            title: "Encuesta registrada con exito!",
-            text: "Muchas gracias por responder la encuesta!",
+            title: "Encuesta registrada con exito,su puntaje fue: " + puntajeTotal + " Puntos!",
+            text: "Muchas gracias por responder la encuesta ",
             icon: "success",
             button: "OK",
         }).then((value) => {
@@ -298,4 +300,10 @@ function verUsuariosEncuestados(idEncuesta) {
             OcultarPopupposition();
         }
     });
+}
+
+function mostrarLiSiguiente(numeroLi) {
+    var numeroLisiguiente =  numeroLi +1;
+    $('#seccionPreguntas').find('li[name=li'+numeroLi+']').attr('hidden','hidden');
+    $('#seccionPreguntas').find('li[name=li'+numeroLisiguiente+']').removeAttr('hidden');
 }
