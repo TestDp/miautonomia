@@ -92,7 +92,8 @@
 																			</div>
 																			<div class="col-md-6">
 																				<div class="modal-body" style="text-align:center; color:black">
-																					<div style="font-size: 12px; color: #000; font-family: sans-serif; text-align: justify;" class="row">
+																					<div id="hexagonVerde" style="display:block; margin:auto; background:green; color:#fff; font-weight:700; padding: 5%;">{{$respuestas->Puntaje}}</div>
+																					<div style="padding-top:5%; font-size: 12px; color: #000; font-family: sans-serif; text-align: justify;" class="row">
 																						{{ $PreguntasFormulario->Explicacion }}
 																					</div>
 																				</div>
@@ -123,7 +124,8 @@
 																			</div>
 																			<div class="col-md-6">
 																				<div class="modal-body" style="text-align:center; color:black">
-																					<div style="font-size: 12px; color: #000; font-family: sans-serif; text-align: justify;" class="row">
+																				<div id="hexagon" style="display:block; margin:auto; background:red; padding: 5%; font-weight:700;">{{$respuestas->Puntaje}}</div>
+																					<div style="padding-top:5%; font-size: 12px; color: #000; font-family: sans-serif; text-align: justify;" class="row">
 																						{{ $PreguntasFormulario->Explicacion }}
 																					</div>
 																				</div>
@@ -155,12 +157,12 @@
 						</div>
 
 									<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-										<span class="glyphicon glyphicon-chevron-left"></span>
-										<span class="sr-only">Previous</span>
+										<span style="font-size: 18px; color:#000; font-weight:700;" class="glyphicon glyphicon-chevron-left">Ant.</span>
+										<p class="sr-only">Previous</p>
 									</a>
 									<a class="right carousel-control" href="#myCarousel" data-slide="next">
-										<span class="glyphicon glyphicon-chevron-right"></span>
-										<span class="sr-only">Next</span>
+										<span style="font-size: 18px; color:#000; font-weight:700;" class="glyphicon glyphicon-chevron-right">Sig.</span>
+										<p class="sr-only">Next</>
 									</a>
 				</div>
 			</div>

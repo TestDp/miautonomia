@@ -5825,7 +5825,7 @@ button.close {
 @media (min-width: 768px) {
   .modal-dialog {
     width: 600px;
-    margin: 30px auto;
+    margin: 0px auto;
   }
   .modal-content {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
@@ -6152,7 +6152,7 @@ button.close {
   left: 0;
   width: 0%;
   font-size: 20px;
-  color: #fff;
+  color: #000;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
   filter: alpha(opacity=50);
@@ -6219,6 +6219,7 @@ button.close {
 }
 .carousel-indicators {
   position: absolute;
+  display:none;
   bottom: 10px;
   left: 50%;
   z-index: 15;

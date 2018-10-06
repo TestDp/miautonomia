@@ -4127,5 +4127,66 @@ ball {
     background: transparent;
 }
 
+#hexagon 
+{
+	width: 100px;
+	height: 55px;
+	background: red;
+	position: relative;
+}
+			
+#hexagon:before {
+	content: "";
+	position: absolute;
+	top: -25px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-width: 0 50px 25px;
+	border-style: solid;
+	border-color: transparent transparent red;
+}
+#hexagon:after {
+	content: "";
+	position: absolute;
+	bottom: -25px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-width: 25px 50px 0;
+	border-style: solid;
+	border-color: red transparent transparent;
+}
+#hexagonVerde 
+{
+	width: 100px;
+	height: 55px;
+	background: green;
+	position: relative;
+}
+			
+#hexagonVerde:before {
+	content: "";
+	position: absolute;
+	top: -25px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-width: 0 50px 25px;
+	border-style: solid;
+	border-color: transparent transparent green;
+}
+#hexagonVerde:after {
+	content: "";
+	position: absolute;
+	bottom: -25px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-width: 25px 50px 0;
+	border-style: solid;
+	border-color: green transparent transparent;
+}
+
 
 
