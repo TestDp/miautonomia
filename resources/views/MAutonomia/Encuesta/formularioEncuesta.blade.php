@@ -16,7 +16,7 @@
 						@endforeach
 					</ol>
 
-						<div class="carousel-inner" >
+						<div style="padding-top: 8%;" class="carousel-inner" >
 						@foreach($encuesta->preguntas as $PreguntasFormulario)
 
 								@if($loop->index == 0)
@@ -26,7 +26,7 @@
 												@endif
 								<div class="row">
 									<div class="col-12-medium">
-										<fieldset name="RespuestasUsuario">
+										<fieldset style="height:600px;" name="RespuestasUsuario">
 											<div style="font-weight: 700; color: #ffffff; background: #e86e48; padding: 1%; border-radius: 50px;" name ="id_pregunta" value = "{{ $PreguntasFormulario->id }}"> ¿ {{ $PreguntasFormulario->Enunciado }} ?
 											</div>
 											@foreach($PreguntasFormulario->Respuestas as $respuestas)
