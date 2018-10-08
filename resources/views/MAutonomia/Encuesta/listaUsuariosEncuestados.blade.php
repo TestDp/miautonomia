@@ -16,6 +16,7 @@
                                 <tr>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Usuario</th>
+                                    <th scope="col">Puntaje total</th>
                                     <th scope="col">Respuestas</th>
                                 </tr>
                                 </thead>
@@ -24,6 +25,7 @@
                                     <tr>
                                         <td >{{$usuario->name}} {{$usuario->last_name}}</td>
                                         <td>{{$usuario->username}}</td>
+                                        <td>{{$usuario->puntajeTotal}}</td>
                                         <td><a class="btn btn-blue ripple trial-button" onclick="verEstadisticas(this,{{$idEncuesta}},{{$usuario->id}})">ver</a></td>
                                     </tr>
                                 @endforeach

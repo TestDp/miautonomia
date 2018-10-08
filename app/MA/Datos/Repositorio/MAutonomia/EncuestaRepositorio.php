@@ -19,7 +19,17 @@ class EncuestaRepositorio
 {
 
     public  function  ObtenerListaEncuestaUsuario($idUsuario){
-        return Encuesta::where('user_id', '=', $idUsuario)->get();
+      //  return Encuesta::all();
+       $encuestasSinResponder =  DB::table('users')
+           ->leftjoin('Tbl_Respuestas_UsuariosXEncuestas', 'Tbl_Respuestas_UsuariosXEncuestas.user_id', '=', 'users.id')
+           ->leftjoin('Tbl_Respuestas','Tbl_Respuestas.id','=','Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
+           ->leftjoin('Tbl_Preguntas','Tbl_Preguntas.id','=','Tbl_Respuestas.Pregunta_id')
+           ->leftjoin('Tbl_Encuestas', 'Tbl_Encuestas.id', '=', 'Tbl_Preguntas.Encuesta_id')
+           ->select('users.*','Tbl_Encuestas.*')
+           ->where('users.id', '=', $idUsuario)
+           ->whereNull('Tbl_Respuestas_UsuariosXEncuestas.user_id')
+           ->get();
+        return $encuestasSinResponder;
     }
 
     public  function  ObtenerListaEncuesta(){
@@ -117,7 +127,7 @@ class EncuestaRepositorio
         return $users;
     }
 
-    //retornar a lista de los usuarios que respondieron la enceusta
+    //retornar a lista de los usuarios que respondieron la encuesta
     public  function obtenerUsuariosEncuestados($idEncuesta)
     {
         $users = DB::table('users')
@@ -125,9 +135,9 @@ class EncuestaRepositorio
             ->join('Tbl_Respuestas','Tbl_Respuestas.id','=','Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
             ->join('Tbl_Preguntas','Tbl_Preguntas.id','=','Tbl_Respuestas.Pregunta_id')
             ->join('Tbl_Encuestas', 'Tbl_Encuestas.id', '=', 'Tbl_Preguntas.Encuesta_id')
-            ->select('users.*',DB::raw('SUM(Tbl_Respuestas.Puntaje) as totalPuntaje'))
+            ->select('users.id','users.name','users.username','users.last_name',DB::raw("SUM(Tbl_Respuestas.Puntaje) as puntajeTotal"))
             ->where('Tbl_Encuestas.id', '=', $idEncuesta)
-            ->groupBy('users.*')
+            ->groupBy(DB::raw('users.id'),DB::raw('users.name'),DB::raw('users.username'),DB::raw('users.last_name'))
             ->get();
         return $users;
     }

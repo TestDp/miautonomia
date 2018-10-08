@@ -81,7 +81,12 @@ class EncuestaController extends Controller
         if($request->ajax()){
             $sections = $view->renderSections();
             return Response::json($sections['content']);
-        }else return  view('MAutonomia/Encuesta/listaEncuestasUsuario',['encuestas'=>$encuestas]);
+        }else
+        {
+            $idUsuario = Auth::user()->id;
+            $encuestas = $this->encuestaServicio->ObtenerListaEncuestaUsuario($idUsuario);
+            return  view('MAutonomia/Encuesta/listaEncuestasUsuario',['encuestas'=>$encuestas]);
+        }
 
     }
 
