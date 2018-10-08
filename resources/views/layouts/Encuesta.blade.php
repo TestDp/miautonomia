@@ -51,6 +51,7 @@
 </head>
 <body class="is-preload landing">
 <div style="background-size: cover; background-image: url('{{ asset('images/fondo-preguntas.png') }}');" id="page-wrapper">
+<audio src="{{ asset('images/sonido.mp3') }}" autoplay loop></audio>
 
 
     <!--left-fixed -navigation-->

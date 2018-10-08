@@ -238,8 +238,8 @@ function validarRespuetas() {
     });
     if(respuesta){
         swal({
-            title: "Encuesta registrada con exito,su puntaje fue: " + puntajeTotal + " Puntos!",
-            text: "Muchas gracias por responder la encuesta ",
+            title: "¡Gracias por participar en MiAutonomía, tu puntaje fue de: " + puntajeTotal + " Puntos!",
+            text: "Muchas gracias por responder la encuesta",
             icon: "success",
             button: "OK",
         }).then((value) => {
