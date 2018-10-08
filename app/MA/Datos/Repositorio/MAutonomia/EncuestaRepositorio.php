@@ -14,21 +14,26 @@ use Illuminate\Support\Facades\DB;
 use MA\Datos\Modelos\MAutonomia\Pregunta;
 use MA\Datos\Modelos\MAutonomia\Respuesta;
 use MA\Datos\Modelos\MAutonomia\RespuestaUsuarioXEncuesta;
+use phpDocumentor\Reflection\Types\Array_;
 
 class EncuestaRepositorio
 {
 
     public  function  ObtenerListaEncuestaUsuario($idUsuario){
-      //  return Encuesta::all();
-       $encuestasSinResponder =  DB::table('users')
-           ->leftjoin('Tbl_Respuestas_UsuariosXEncuestas', 'Tbl_Respuestas_UsuariosXEncuestas.user_id', '=', 'users.id')
-           ->leftjoin('Tbl_Respuestas','Tbl_Respuestas.id','=','Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
-           ->leftjoin('Tbl_Preguntas','Tbl_Preguntas.id','=','Tbl_Respuestas.Pregunta_id')
-           ->leftjoin('Tbl_Encuestas', 'Tbl_Encuestas.id', '=', 'Tbl_Preguntas.Encuesta_id')
-           ->select('users.*','Tbl_Encuestas.*')
-           ->where('users.id', '=', $idUsuario)
-           ->whereNull('Tbl_Respuestas_UsuariosXEncuestas.user_id')
+       $idEncuestasSinResponder =  DB::table('Tbl_Respuestas_UsuariosXEncuestas')
+           ->join('Tbl_Respuestas','Tbl_Respuestas.id','=','Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
+           ->join('Tbl_Preguntas','Tbl_Preguntas.id','=','Tbl_Respuestas.Pregunta_id')
+           ->join('Tbl_Encuestas', 'Tbl_Encuestas.id', '=', 'Tbl_Preguntas.Encuesta_id')
+           ->select('Tbl_Encuestas.id')
+           ->where('Tbl_Respuestas_UsuariosXEncuestas.user_id','=',$idUsuario)
+           ->distinct()
            ->get();
+        $arrayIds = array();
+        foreach ($idEncuestasSinResponder as $idencuesta)
+            $arrayIds[]=$idencuesta->id;
+        $encuestasSinResponder = DB::table('Tbl_Encuestas')
+            ->whereNotIn('id', $arrayIds)
+            ->get();
         return $encuestasSinResponder;
     }
 

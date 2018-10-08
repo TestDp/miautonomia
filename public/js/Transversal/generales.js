@@ -2,8 +2,8 @@
 function obtenerUlrBase() {
     var rootFolder = "";
     switch (document.location.hostname) {
-        case 'facin.co':
-            rootFolder = '/'; break;
+        case 'mujeresquecrean.org':
+            rootFolder = '/miautonomia/'; break;
         case 'localhost':
             rootFolder = '/miautonomia/trunk/public/'; break;
         default:  // set whatever you want
