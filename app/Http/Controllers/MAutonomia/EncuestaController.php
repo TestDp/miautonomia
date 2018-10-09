@@ -93,7 +93,8 @@ class EncuestaController extends Controller
 
     public function obtenerFormularioEncuesta($idEncuesta)
     {
-        $encuesta = $this->encuestaServicio->obtenerFormularioEncuesta($idEncuesta);
+        $idUsuario = Auth::user()->id;
+        $encuesta = $this->encuestaServicio->obtenerFormularioEncuesta($idEncuesta,$idUsuario);
         return view('MAutonomia/Encuesta/formularioEncuesta',['encuesta' =>$encuesta]);
     }
 

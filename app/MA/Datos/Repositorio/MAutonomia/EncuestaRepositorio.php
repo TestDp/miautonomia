@@ -14,25 +14,29 @@ use Illuminate\Support\Facades\DB;
 use MA\Datos\Modelos\MAutonomia\Pregunta;
 use MA\Datos\Modelos\MAutonomia\Respuesta;
 use MA\Datos\Modelos\MAutonomia\RespuestaUsuarioXEncuesta;
-use phpDocumentor\Reflection\Types\Array_;
+
 
 class EncuestaRepositorio
 {
 
     public  function  ObtenerListaEncuestaUsuario($idUsuario){
-       $idEncuestasSinResponder =  DB::table('Tbl_Respuestas_UsuariosXEncuestas')
-           ->join('Tbl_Respuestas','Tbl_Respuestas.id','=','Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
-           ->join('Tbl_Preguntas','Tbl_Preguntas.id','=','Tbl_Respuestas.Pregunta_id')
-           ->join('Tbl_Encuestas', 'Tbl_Encuestas.id', '=', 'Tbl_Preguntas.Encuesta_id')
-           ->select('Tbl_Encuestas.id')
-           ->where('Tbl_Respuestas_UsuariosXEncuestas.user_id','=',$idUsuario)
-           ->distinct()
-           ->get();
+        $idEncuestasSinResponder =  DB::table('Tbl_Respuestas_UsuariosXEncuestas')
+            ->join('Tbl_Respuestas','Tbl_Respuestas.id','=','Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
+            ->join('Tbl_Preguntas','Tbl_Preguntas.id','=','Tbl_Respuestas.Pregunta_id')
+            ->join('Tbl_Encuestas', 'Tbl_Encuestas.id', '=', 'Tbl_Preguntas.Encuesta_id')
+            ->select('Tbl_Encuestas.id',DB::raw('count(Tbl_Respuestas_UsuariosXEncuestas.user_id) as cantidad'))
+            ->where('Tbl_Respuestas_UsuariosXEncuestas.user_id','=',$idUsuario)
+            ->groupBy('Tbl_Respuestas_UsuariosXEncuestas.user_id','Tbl_Encuestas.id')
+            ->get();
         $arrayIds = array();
         foreach ($idEncuestasSinResponder as $idencuesta)
-            $arrayIds[]=$idencuesta->id;
+        {
+            $numTotalPreguntas = count(Pregunta::where('Encuesta_id', '=', $idencuesta->id)->get());
+            if($numTotalPreguntas > $idencuesta->cantidad)
+                $arrayIds[]=$idencuesta->id;
+        }
         $encuestasSinResponder = DB::table('Tbl_Encuestas')
-            ->whereNotIn('id', $arrayIds)
+            ->whereIn('id', $arrayIds)
             ->get();
         return $encuestasSinResponder;
     }
@@ -89,10 +93,29 @@ class EncuestaRepositorio
 
     }
 
-    public function obtenerEncuesta($idEncuesta)
+    public function obtenerEncuesta($idEncuesta,$idUsuario)
     {
+        $PreguntasConRespuesta =  DB::table('Tbl_Respuestas_UsuariosXEncuestas')
+            ->join('Tbl_Respuestas','Tbl_Respuestas.id','=','Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
+            ->join('Tbl_Preguntas','Tbl_Preguntas.id','=','Tbl_Respuestas.Pregunta_id')
+            ->join('Tbl_Encuestas', 'Tbl_Encuestas.id', '=', 'Tbl_Preguntas.Encuesta_id')
+            ->select('Tbl_Preguntas.*')
+            ->where('Tbl_Respuestas_UsuariosXEncuestas.user_id','=',$idUsuario)
+            ->where('Tbl_Encuestas.id','=',$idEncuesta)
+            ->get();
+
+        $arrayIds = array();
+        foreach ($PreguntasConRespuesta as $pregunta)
+        {
+                $arrayIds[]=$pregunta->id;
+        }
+       // $preguntasSinResponder = DB::table('Tbl_Preguntas')
+        $preguntasSinResponder = Pregunta::where('Encuesta_id','=',$idEncuesta)
+            ->whereNotIn('id', $arrayIds)
+            ->get();
+
         $encuesta = Encuesta::where('id','=',$idEncuesta)->get()->first();
-        $encuesta->preguntas;
+        $encuesta->preguntas= $preguntasSinResponder;
         $encuesta->preguntas->each(function($preguntas){
             $preguntas ->respuestas;// se realiza la relacion de la respuestas de la preguntas del evento
         });
