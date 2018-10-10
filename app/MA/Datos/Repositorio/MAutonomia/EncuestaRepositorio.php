@@ -26,17 +26,17 @@ class EncuestaRepositorio
             ->join('Tbl_Encuestas', 'Tbl_Encuestas.id', '=', 'Tbl_Preguntas.Encuesta_id')
             ->select('Tbl_Encuestas.id',DB::raw('count(Tbl_Respuestas_UsuariosXEncuestas.user_id) as cantidad'))
             ->where('Tbl_Respuestas_UsuariosXEncuestas.user_id','=',$idUsuario)
-            ->groupBy('Tbl_Respuestas_UsuariosXEncuestas.user_id','Tbl_Encuestas.id')
+            ->groupBy('Tbl_Encuestas.id')
             ->get();
         $arrayIds = array();
         foreach ($idEncuestasSinResponder as $idencuesta)
         {
             $numTotalPreguntas = count(Pregunta::where('Encuesta_id', '=', $idencuesta->id)->get());
-            if($numTotalPreguntas > $idencuesta->cantidad)
+            if($numTotalPreguntas == $idencuesta->cantidad)
                 $arrayIds[]=$idencuesta->id;
         }
         $encuestasSinResponder = DB::table('Tbl_Encuestas')
-            ->whereIn('id', $arrayIds)
+            ->whereNotIn('id', $arrayIds)
             ->get();
         return $encuestasSinResponder;
     }
