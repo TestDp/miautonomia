@@ -170,8 +170,53 @@ class EncuestaRepositorio
         return $users;
     }
 
+
+    public  function obtenerEstadisticasGenerales($idEncuesta, $idPregunta, $idGenero, $idRangoEdad)
+    {
+
+        $arrayRango = array();
+        if($idRangoEdad == 1)
+            $arrayRango = array(18,19,20,21,22,23,24);
+        if($idRangoEdad == 2)
+            $arrayRango = array(25,26,27,28,29,30,31,32,33,34);
+        if($idRangoEdad == 3)
+            $arrayRango = array(35,36,37,38,39,40,41,42,43,44);
+        if($idRangoEdad == 4)
+            $arrayRango = array(45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70);
+
+        $EnstadisticaEncuesta = DB::table('users')
+            ->join('Tbl_Respuestas_UsuariosXEncuestas', 'Tbl_Respuestas_UsuariosXEncuestas.user_id', '=', 'users.id')
+            ->join('Tbl_Respuestas','Tbl_Respuestas.id','=','Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
+            ->join('Tbl_Preguntas','Tbl_Preguntas.id','=','Tbl_Respuestas.Pregunta_id')
+            ->join('Tbl_Encuestas', 'Tbl_Encuestas.id', '=', 'Tbl_Preguntas.Encuesta_id')
+            ->select('Tbl_Encuestas.id','Tbl_Respuestas.Descripcion', DB::raw('count(Tbl_Respuestas_UsuariosXEncuestas.user_id) as cantidad'))
+            ->where('Tbl_Encuestas.id', '=', $idEncuesta)
+            ->where('Tbl_Preguntas.id', '=', $idPregunta)
+            ->where('users.Sexo', '=', $idGenero)
+            ->Orwhere( $idGenero, '=',0)
+            ->whereIn('users.Edad', $arrayRango)
+            ->Orwhere( $idRangoEdad, '=',0)
+            ->groupBy(DB::raw('Tbl_Encuestas.id'),DB::raw('Tbl_Respuestas.Descripcion'))
+            ->get();
+
+
+            $numTotalRespuestas = count(DB::table('Tbl_Respuestas_UsuariosXEncuestas')
+                ->join('Tbl_Respuestas','Tbl_Respuestas.id','=','Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
+                ->join('Tbl_Preguntas','Tbl_Preguntas.id','=','Tbl_Respuestas.Pregunta_id')
+                ->where('Tbl_Preguntas_id', '=', $idPregunta)->get());
+
+
+
+        $EnstadisticaEncuesta->Totalrespuestas = $numTotalRespuestas ;
+
+
+        return $EnstadisticaEncuesta;
+    }
+
     public  function obtenerPreguntasEncuestas($idEncuesta)
     {
       return   $preguntasSinResponder = Pregunta::where('Encuesta_id','=',$idEncuesta)->get();
     }
+
+
 }
