@@ -21,6 +21,7 @@
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Descripción</th>
                                     <th scope="col">Usuarios Encuestados</th>
+                                    <th scope="col">Estadísticas</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -30,6 +31,9 @@
                                         <td>{!!$encuesta->Descripcion!!}</td>
                                         <td>
                                             <a class="btn btn-blue ripple trial-button" onclick="verUsuariosEncuestados({{$encuesta->id}})">ver</a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-blue ripple trial-button" onclick="verEstadisticas({{$encuesta->id}})">ver</a>
                                         </td>
                                     </tr>
                                 @endforeach

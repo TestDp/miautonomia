@@ -35,6 +35,7 @@ class EncuestaRepositorio
             if($numTotalPreguntas == $idencuesta->cantidad)
                 $arrayIds[]=$idencuesta->id;
         }
+
         $encuestasSinResponder = DB::table('Tbl_Encuestas')
             ->whereNotIn('id', $arrayIds)
             ->get();
@@ -109,7 +110,6 @@ class EncuestaRepositorio
         {
                 $arrayIds[]=$pregunta->id;
         }
-       // $preguntasSinResponder = DB::table('Tbl_Preguntas')
         $preguntasSinResponder = Pregunta::where('Encuesta_id','=',$idEncuesta)
             ->whereNotIn('id', $arrayIds)
             ->get();
@@ -168,5 +168,10 @@ class EncuestaRepositorio
             ->groupBy(DB::raw('users.id'),DB::raw('users.name'),DB::raw('users.username'),DB::raw('users.last_name'))
             ->get();
         return $users;
+    }
+
+    public  function obtenerPreguntasEncuestas($idEncuesta)
+    {
+      return   $preguntasSinResponder = Pregunta::where('Encuesta_id','=',$idEncuesta)->get();
     }
 }

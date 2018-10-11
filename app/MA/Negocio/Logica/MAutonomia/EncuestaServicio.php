@@ -52,4 +52,14 @@ class EncuestaServicio
     {
         return $this->encuestaRepositorio->obtenerUsuariosEncuestados($idEncuesta);
     }
+
+    public  function ObtenerEstadisticasGenerales($idEncuesta, $idPregunta, $idGenero, $idRangoEdad)
+    {
+        return $this->encuestaRepositorio->ObtenerEstadisticasGenerales($idEncuesta, $idPregunta, $idGenero, $idRangoEdad);
+    }
+
+    public  function obtenerPreguntasEncuestas($idEncuesta)
+    {
+        return $this->encuestaRepositorio->obtenerPreguntasEncuestas($idEncuesta);
+    }
 }

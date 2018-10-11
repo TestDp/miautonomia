@@ -58,6 +58,8 @@ Route::post('registrarEncuesta',['uses' =>'MAutonomia\EncuestaController@registr
 Route::get('guardarRespuesta/{idrespuesta}', 'MAutonomia\EncuestaController@GuardarRespuestaEncuesta');
 Route::post('estadisticas', 'MAutonomia\EncuestaController@obtenerEstadisticasEncuesta')->name('estadisticas');
 Route::post('usuariosEncuestados', 'MAutonomia\EncuestaController@obtenerUsuariosEncuestados')->name('usuariosEncuestados');
+Route::post('estadisticasGenerales', 'MAutonomia\EncuestaController@obtenerEstadisticasGenerales')->name('estadisticasGenerales');
+
 
 //CONTROLADOR SEDES
 Route::get('crearSede', 'MEmpresa\SedeController@CrearSede')->name('crearSede');//cargar la vista para crear una sede

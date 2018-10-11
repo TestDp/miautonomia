@@ -303,8 +303,21 @@ function verUsuariosEncuestados(idEncuesta) {
     });
 }
 
-function mostrarLiSiguiente(numeroLi) {
-    var numeroLisiguiente =  numeroLi +1;
-    $('#seccionPreguntas').find('li[name=li'+numeroLi+']').attr('hidden','hidden');
-    $('#seccionPreguntas').find('li[name=li'+numeroLisiguiente+']').removeAttr('hidden');
+function verEstadisticas(idEncuesta) {
+    var token = $("#_token").val();
+    PopupPosition();
+    $.ajax({
+        type: 'POST',
+        url: urlBase +'estadisticasGenerales',
+        dataType: 'json',
+        headers: {'X-CSRF-TOKEN': token},
+        data:{idEncuesta:idEncuesta},
+        success: function (data) {
+            OcultarPopupposition();
+            $('#principalPanel').empty().append($(data));
+        },
+        error: function (data) {
+            OcultarPopupposition();
+        }
+    });
 }
