@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" id="divCanvas">
                 <canvas style="height:600px !important;" id="canvasEstadisticasGenerales" class="img-responsive"></canvas>
             </div>
         </div>

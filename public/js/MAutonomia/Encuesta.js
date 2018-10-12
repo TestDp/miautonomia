@@ -370,8 +370,9 @@ function construirGraficoEstadisticas() {
         data:{idEncuesta:idEncuesta,idPregunta:idPregunta,Sexo:Sexo,RangoEdad:RangoEdad},
         success: function (result) {
             if (result) {
-                var ctx = document.getElementById("canvasEstadisticasGenerales");
-
+                $("#divCanvas").html("");
+                $("#divCanvas").append('<canvas style="height:600px !important;" id="canvasEstadisticasGenerales" class="img-responsive"></canvas>');
+                var ctx = document.getElementById('canvasEstadisticasGenerales');
                 var data = {
                     labels: result.etiquetas,
                     datasets: [

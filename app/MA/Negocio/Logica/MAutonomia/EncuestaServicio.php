@@ -62,7 +62,8 @@ class EncuestaServicio
             $arrayLabels[] = $resultado->Descripcion;
             $arrayCantidad[] = $resultado->cantidad;
         }
-        return array('etiquetas'=>$arrayLabels,'Cantidad'=>$arrayCantidad,'total'=>$restuladosConsulta->total);
+      //  return array('etiquetas'=>$arrayLabels,'Cantidad'=>$arrayCantidad,'total'=>$restuladosConsulta->total);
+        return array('etiquetas'=>$arrayLabels,'Cantidad'=>$arrayCantidad);
     }
 
     public  function obtenerPreguntasEncuestas($idEncuesta)
