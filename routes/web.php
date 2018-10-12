@@ -59,6 +59,7 @@ Route::get('guardarRespuesta/{idrespuesta}', 'MAutonomia\EncuestaController@Guar
 Route::post('estadisticas', 'MAutonomia\EncuestaController@obtenerEstadisticasEncuesta')->name('estadisticas');
 Route::post('usuariosEncuestados', 'MAutonomia\EncuestaController@obtenerUsuariosEncuestados')->name('usuariosEncuestados');
 Route::post('estadisticasGenerales', 'MAutonomia\EncuestaController@obtenerEstadisticasGenerales')->name('estadisticasGenerales');
+Route::post('GenerarEstadisticas', 'MAutonomia\EncuestaController@GenerarEstadisticasGenerales')->name('GenerarEstadisticas');
 
 
 //CONTROLADOR SEDES

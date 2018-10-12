@@ -108,7 +108,7 @@ class EncuestaRepositorio
         $arrayIds = array();
         foreach ($PreguntasConRespuesta as $pregunta)
         {
-                $arrayIds[]=$pregunta->id;
+            $arrayIds[]=$pregunta->id;
         }
         $preguntasSinResponder = Pregunta::where('Encuesta_id','=',$idEncuesta)
             ->whereNotIn('id', $arrayIds)
@@ -184,7 +184,9 @@ class EncuestaRepositorio
         if($idRangoEdad == 4)
             $arrayRango = array(45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70);
 
-        $EnstadisticaEncuesta = DB::table('users')
+        $stringQueryGenero = $idGenero.'=0';
+        $stringQueryEdad = $idRangoEdad.'=0';
+        $EstadisticaEncuesta = DB::table('users')
             ->join('Tbl_Respuestas_UsuariosXEncuestas', 'Tbl_Respuestas_UsuariosXEncuestas.user_id', '=', 'users.id')
             ->join('Tbl_Respuestas','Tbl_Respuestas.id','=','Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
             ->join('Tbl_Preguntas','Tbl_Preguntas.id','=','Tbl_Respuestas.Pregunta_id')
@@ -193,29 +195,24 @@ class EncuestaRepositorio
             ->where('Tbl_Encuestas.id', '=', $idEncuesta)
             ->where('Tbl_Preguntas.id', '=', $idPregunta)
             ->where('users.Sexo', '=', $idGenero)
-            ->Orwhere( $idGenero, '=',0)
+            //->Orwhere(DB::raw($stringQueryGenero))
             ->whereIn('users.Edad', $arrayRango)
-            ->Orwhere( $idRangoEdad, '=',0)
+           // ->Orwhere( DB::raw($stringQueryEdad))
             ->groupBy(DB::raw('Tbl_Encuestas.id'),DB::raw('Tbl_Respuestas.Descripcion'))
             ->get();
 
+        $numTotalRespuestas = count(DB::table('Tbl_Respuestas_UsuariosXEncuestas')
+            ->join('Tbl_Respuestas','Tbl_Respuestas.id','=','Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
+            ->join('Tbl_Preguntas','Tbl_Preguntas.id','=','Tbl_Respuestas.Pregunta_id')
+            ->where('Tbl_Preguntas.id', '=', $idPregunta)->get());
 
-            $numTotalRespuestas = count(DB::table('Tbl_Respuestas_UsuariosXEncuestas')
-                ->join('Tbl_Respuestas','Tbl_Respuestas.id','=','Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
-                ->join('Tbl_Preguntas','Tbl_Preguntas.id','=','Tbl_Respuestas.Pregunta_id')
-                ->where('Tbl_Preguntas_id', '=', $idPregunta)->get());
-
-
-
-        $EnstadisticaEncuesta->Totalrespuestas = $numTotalRespuestas ;
-
-
-        return $EnstadisticaEncuesta;
+        $EstadisticaEncuesta->total = $numTotalRespuestas;
+        return $EstadisticaEncuesta;
     }
 
     public  function obtenerPreguntasEncuestas($idEncuesta)
     {
-      return   $preguntasSinResponder = Pregunta::where('Encuesta_id','=',$idEncuesta)->get();
+        return   $preguntasSinResponder = Pregunta::where('Encuesta_id','=',$idEncuesta)->get();
     }
 
 

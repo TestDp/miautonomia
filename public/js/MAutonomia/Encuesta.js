@@ -2,6 +2,15 @@ var urlBase = ""; //SE DEBE VALIDAR CUAL ES LA URL EN LA QUE SE ESTA CORRIENDO L
 var numeroPregunta = 0;
 var numeroRespuesta = 0;
 
+var arrayColores= ["#000033","#0000CC","#003300","#0033FF","#006600","#006699",
+    "#0066CC","#009966","#009999","#0099CC","#0099FF","#00CC99","#00CCCC","#00CCFF","#00FF00","#00FF33",
+    "#00FF66","#00FF99","#330033","#330066","#330099","#3300CC","#3300FF","#333300","#333333","#333366","#333399","#3333CC","#3333FF",
+    "#336600","#336633","#336666","#336699","#3366CC","#3366FF","#339900","#339933","#339966","#339999","#3399CC","#3399FF","#33CC00","#33CC33","#33CC66","#33CC99",
+    "#66FF33","#66FF66","#66FF99","#66FFCC","#99CC00","#99CC33","#99CC66","#99FF00","#99FF33","#99FF66",
+    "#99FF99","#99FFCC","#99FFFF","#CC0000","#CC00CC","#CC00FF","#CC3300","#CC3333","#CC3366","#CC3399","#CC33CC","#CC33FF","#CC6600",
+    "#CC6633","#FF0066","#FF0099","#FF00CC","#FF00FF","#FF3300","#FF3333","#FF3366","#FF3399","#FF33CC","#FF33FF","#FF6600","#FF6633","#FF6666","#FF6699","#FF66CC",
+    "#FF66FF","#FF9900","#FF9933","#FF9966","#FF9999"];
+
 try {
     urlBase = obtenerUlrBase();
 } catch (e) {
@@ -318,6 +327,64 @@ function verEstadisticas(idEncuesta) {
         },
         error: function (data) {
             OcultarPopupposition();
+        }
+    });
+}
+
+
+function validarCamporEstadisticas() {
+    validarFormularioEstadisticas()
+    if ($("#formEstadisticas").valid()) {
+        construirGraficoEstadisticas()
+    }
+}
+
+function validarFormularioEstadisticas(){
+    $("#formEstadisticas").validate({
+        rules: {
+            Pregunta_id: {
+                required: true
+            }
+        },
+        messages: {
+            Pregunta_id: {
+                required: "*Se debe seleccionar una pregunta"
+            }
+        }
+
+    });
+
+}
+
+function construirGraficoEstadisticas() {
+    var token = $("#_token").val();
+    var idEncuesta = $("#idEncuesta").val();
+    var idPregunta = $("#Pregunta_id").val();
+    var Sexo = $("#Sexo").val();
+    var RangoEdad = $("#RangoEdad").val();
+    $.ajax({
+        type: 'POST',
+        url: urlBase +'GenerarEstadisticas',
+        dataType: 'json',
+        headers: {'X-CSRF-TOKEN': token},
+        data:{idEncuesta:idEncuesta,idPregunta:idPregunta,Sexo:Sexo,RangoEdad:RangoEdad},
+        success: function (result) {
+            if (result) {
+                var ctx = document.getElementById("canvasEstadisticasGenerales");
+
+                var data = {
+                    labels: result.etiquetas,
+                    datasets: [
+                        {
+                            data: result.Cantidad,
+                            backgroundColor: arrayColores
+                        }]
+                }
+                var myPieChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: data
+                });
+            }
         }
     });
 }

@@ -55,7 +55,14 @@ class EncuestaServicio
 
     public  function ObtenerEstadisticasGenerales($idEncuesta, $idPregunta, $idGenero, $idRangoEdad)
     {
-        return $this->encuestaRepositorio->ObtenerEstadisticasGenerales($idEncuesta, $idPregunta, $idGenero, $idRangoEdad);
+        $restuladosConsulta =  $this->encuestaRepositorio->ObtenerEstadisticasGenerales($idEncuesta, $idPregunta, $idGenero, $idRangoEdad);
+        $arrayLabels = array();
+        $arrayCantidad = array();
+        foreach ($restuladosConsulta as $resultado){
+            $arrayLabels[] = $resultado->Descripcion;
+            $arrayCantidad[] = $resultado->cantidad;
+        }
+        return array('etiquetas'=>$arrayLabels,'Cantidad'=>$arrayCantidad,'total'=>$restuladosConsulta->total);
     }
 
     public  function obtenerPreguntasEncuestas($idEncuesta)
