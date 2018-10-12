@@ -184,7 +184,7 @@ class EncuestaRepositorio
         if($idRangoEdad == 4)
             $arrayRango = array(45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70);
 
-        if ($idRangoEdad ==0 && $idGenero ==0 ) {
+        if ($idRangoEdad == 0 && $idGenero == '0' ) {
             $EstadisticaEncuesta = DB::table('users')
                 ->join('Tbl_Respuestas_UsuariosXEncuestas', 'Tbl_Respuestas_UsuariosXEncuestas.user_id', '=', 'users.id')
                 ->join('Tbl_Respuestas', 'Tbl_Respuestas.id', '=', 'Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
@@ -197,7 +197,7 @@ class EncuestaRepositorio
                 ->get();
         }
 
-        if ($idRangoEdad ==0 && $idGenero <> 0 ) {
+        if ($idRangoEdad == 0 && $idGenero !=  '0' ) {
             $EnstadisticaEncuesta = DB::table('users')
                 ->join('Tbl_Respuestas_UsuariosXEncuestas', 'Tbl_Respuestas_UsuariosXEncuestas.user_id', '=', 'users.id')
                 ->join('Tbl_Respuestas', 'Tbl_Respuestas.id', '=', 'Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
@@ -210,7 +210,7 @@ class EncuestaRepositorio
                 ->groupBy(DB::raw('Tbl_Encuestas.id'), DB::raw('Tbl_Respuestas.Descripcion'))
                 ->get();
         }
-        if ($idRangoEdad <> 0 && $idGenero == 0 ) {
+        if ($idRangoEdad !=  0 && $idGenero == '0' ) {
             $EnstadisticaEncuesta = DB::table('users')
                 ->join('Tbl_Respuestas_UsuariosXEncuestas', 'Tbl_Respuestas_UsuariosXEncuestas.user_id', '=', 'users.id')
                 ->join('Tbl_Respuestas', 'Tbl_Respuestas.id', '=', 'Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
@@ -224,7 +224,7 @@ class EncuestaRepositorio
                 ->groupBy(DB::raw('Tbl_Encuestas.id'), DB::raw('Tbl_Respuestas.Descripcion'))
                 ->get();
         }
-        if ($idRangoEdad <> 0 && $idGenero <> 0 ) {
+        if ($idRangoEdad != 0 && $idGenero !=  '0' ) {
             $EnstadisticaEncuesta = DB::table('users')
                 ->join('Tbl_Respuestas_UsuariosXEncuestas', 'Tbl_Respuestas_UsuariosXEncuestas.user_id', '=', 'users.id')
                 ->join('Tbl_Respuestas', 'Tbl_Respuestas.id', '=', 'Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
