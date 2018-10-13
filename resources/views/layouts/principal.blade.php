@@ -90,7 +90,7 @@
     <div class="sticky-header header-section ">
         <div class="header-left">
             <!--toggle button start-->
-            <button id="showLeftPush"><i class="fa fa-bars"></i></button>
+            <button style="background: #fff !important;" id="showLeftPush"><i class="fa fa-bars"></i></button>
             <!--toggle button end-->
             <!--logo -->
             <div class="logo">

@@ -248,6 +248,7 @@ function validarRespuetas() {
     if(respuesta){
         swal({
             title: "¡Gracias por participar en MiAutonomía, tu puntaje fue de: " + puntajeTotal + " Puntos!",
+			imageUrl: 'http://mujeresquecrean.org/miautonomia/images/Logo.png',
             text: "Muchas gracias por responder la encuesta",
             icon: "success",
             button: "OK",

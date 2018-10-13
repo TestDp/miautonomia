@@ -1100,6 +1100,9 @@ textarea {
   font-size: inherit;
   line-height: inherit;
 }
+
+button{background: #e86e48 !important;}
+
 a {
   color: #e86e48;
   text-decoration: none;
