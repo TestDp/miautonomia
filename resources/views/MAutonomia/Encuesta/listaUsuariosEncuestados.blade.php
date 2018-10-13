@@ -15,7 +15,7 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Usuario</th>
+                                    <th scope="col">Nivel Educativo</th>
                                     <th scope="col">Puntaje total</th>
                                     <th scope="col">Respuestas</th>
                                 </tr>
@@ -24,9 +24,9 @@
                                 @foreach($usuariosEncuestados as $usuario)
                                     <tr>
                                         <td >{{$usuario->name}} {{$usuario->last_name}}</td>
-                                        <td>{{$usuario->username}}</td>
+                                        <td>{{$usuario->NivelEducativo}}</td>
                                         <td>{{$usuario->puntajeTotal}}</td>
-                                        <td><a class="btn btn-blue ripple trial-button" onclick="verEstadisticas(this,{{$idEncuesta}},{{$usuario->id}})">ver</a></td>
+                                        <td><a class="btn btn-blue ripple trial-button" onclick="verEstadisticas1(this,{{$idEncuesta}},{{$usuario->id}})">ver</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

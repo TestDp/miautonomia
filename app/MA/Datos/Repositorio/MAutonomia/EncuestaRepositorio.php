@@ -163,9 +163,9 @@ class EncuestaRepositorio
             ->join('Tbl_Respuestas','Tbl_Respuestas.id','=','Tbl_Respuestas_UsuariosXEncuestas.Respuesta_id')
             ->join('Tbl_Preguntas','Tbl_Preguntas.id','=','Tbl_Respuestas.Pregunta_id')
             ->join('Tbl_Encuestas', 'Tbl_Encuestas.id', '=', 'Tbl_Preguntas.Encuesta_id')
-            ->select('users.id','users.name','users.username','users.last_name',DB::raw("SUM(Tbl_Respuestas.Puntaje) as puntajeTotal"))
+            ->select('users.id','users.name','users.NivelEducativo','users.last_name',DB::raw("SUM(Tbl_Respuestas.Puntaje) as puntajeTotal"))
             ->where('Tbl_Encuestas.id', '=', $idEncuesta)
-            ->groupBy(DB::raw('users.id'),DB::raw('users.name'),DB::raw('users.username'),DB::raw('users.last_name'))
+            ->groupBy(DB::raw('users.id'),DB::raw('users.name'),DB::raw('users.NivelEducativo'),DB::raw('users.last_name'))
             ->get();
         return $users;
     }

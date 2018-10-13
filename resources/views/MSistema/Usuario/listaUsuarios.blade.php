@@ -12,7 +12,7 @@
                         <tr>
                             <th scope="col">Nombre</th>
                             <th scope="col">Usuario</th>
-                            <th scope="col">Rol</th>
+                            <th scope="col">Nivel Educativo</th>
                             <th scope="col">Correo</th>
                         </tr>
                         </thead>
@@ -21,7 +21,7 @@
                             <tr>
                                 <td>{{$usuario->name}} {{$usuario->last_name}}</td>
                                 <td>{{$usuario->username}}</td>
-                                <td >{{$usuario->Nombre}}</td>
+                                <td >{{$usuario->NivelEducativo}}</td>
                                 <td>{{$usuario->email}}</td>
                             </tr>
                         @endforeach

@@ -266,7 +266,7 @@ function validarRespuetas() {
     }*/
 }
 
-function verEstadisticas(element,idEncuesta,idUsuario) {
+function verEstadisticas1(element,idEncuesta,idUsuario) {
     var token = $("#_token").val();
     PopupPosition();
     $.ajax({
